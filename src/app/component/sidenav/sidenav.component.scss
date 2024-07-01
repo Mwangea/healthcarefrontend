@@ -1,12 +1,22 @@
 .sidenav {
-  background: #263238;
+  background: #ffffff;
   transition: all .5s ease;
   position: fixed;
-  z-index: 1;
+  z-index: 2;
   top: 0;
   width: 5rem;
   height: 100vh;
+  //width: 213.051px;
+  //height: 768px;
+  //flex-shrink: 0;
   box-shadow: 0.063rem 0 1.25rem 0 #8690a3;
+
+  .logout-icon-container {
+    margin-top: auto; // Pushes the logout icon to the bottom
+    padding: 10px;
+    text-align: center;
+    margin-top: 20px; // Adjust this value to increase the space
+  }
 
   .logo-container {
       display: flex;
@@ -31,7 +41,7 @@
           margin-left: 1.5rem;
           font-size: 24px;
           font-weight: 700;
-          color: #fff;
+          color: #000000;
       }
 
       .btn-close {
@@ -73,7 +83,7 @@
           display: flex;
           align-items: center;
           height: 3rem;
-          color: #f3f3f3;
+          color: var(--Grey-500, #7F8F98);;
           text-decoration: none;
           border-radius: 0.625rem;
           transition: all .3s ease;
@@ -94,17 +104,20 @@
 
   .sidenav-nav-item:hover {
       .sidenav-nav-link {
-          background-color: #fff;
-          color: #000;
+        background-color: #e6f3ff; /* Light blue background for active state */
+        border-left: 4px solid #007bff;
       }
   }
 }
 
 .active {
   background-color: #fff;
+  background-color: #e6f3ff; /* Light blue background for active state */
+  border-left: 4px solid #007bff;
 
   .sidenav-link-icon,
   .sidenav-link-text {
-      color: #000;
+    //background-color: #e6f3ff; /* Light blue background for active state */
+    //border-left: 4px solid #007bff;
   }
 }

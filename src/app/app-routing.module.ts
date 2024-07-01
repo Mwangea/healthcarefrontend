@@ -9,6 +9,7 @@ import { MedicalRecordsComponent } from './component/medical-records/medical-rec
 import { MedicineInventoryComponent } from './component/medicine-inventory/medicine-inventory.component';
 import { PatientsComponent } from './component/patients/patients.component';
 import { InvoiceComponent } from './component/invoice/invoice.component';
+import { AppointmentsComponent } from './component/appointments/appointments.component';
 
 const routes: Routes = [
   {path: '', component:HomeComponent},
@@ -20,6 +21,7 @@ const routes: Routes = [
   {path: 'medicine-inventory', component:MedicineInventoryComponent},
   {path: 'patients', component:PatientsComponent},
   {path: 'invoice', component:InvoiceComponent},
+  {path:'appointments', component:AppointmentsComponent},
 
 ];
 

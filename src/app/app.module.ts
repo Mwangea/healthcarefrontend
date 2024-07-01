@@ -26,6 +26,7 @@ import { DoctorComponent } from './component/doctor/doctor.component';
 import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 //import { library } from '@fortawesome/fontawesome-svg-core';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
+import { HeaderComponent } from './component/header/header.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { faHome } from '@fortawesome/free-solid-svg-icons';
     MedicalRecordsComponent,
     MedicineInventoryComponent,
     InvoiceComponent,
-    DoctorComponent
+    DoctorComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
