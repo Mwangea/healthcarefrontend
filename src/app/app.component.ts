@@ -1,3 +1,4 @@
+import { UserService } from './_service/user.service';
 import { Component } from '@angular/core';
 
 interface SideNavToggle {
@@ -16,8 +17,14 @@ export class AppComponent {
   isSideNavCollapsed = false;
   screenWidth = 0;
 
+  constructor(private UserService: UserService){}
+
   onToggleSideNav(data: SideNavToggle): void {
     this.screenWidth = data.screenWidth;
     this.isSideNavCollapsed = data.collapsed;
+  }
+
+  isLoggedIn(): boolean{
+    return this.UserService.getUserRole() !== '';
   }
 }

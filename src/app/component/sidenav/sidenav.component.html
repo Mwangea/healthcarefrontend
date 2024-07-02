@@ -1,31 +1,33 @@
 <div class="sidenav" [ngClass]="collapsed ? 'sidenav-collapsed': ''">
   <div class="logo-container">
-
-        <img src="assets/logoh.svg" (click)="toggleCollapse()" alt="Logo" class="logo" />
-
-      <div class="logo-text" @fadeInOut *ngIf="collapsed">HMS</div>
-      <button class="btn-close" @rotate *ngIf="collapsed" (click)="closeSidenav()">
-        <mat-icon>close</mat-icon>
-      </button>
+    <img src="assets/logoh.svg" (click)="toggleCollapse()" alt="Logo" class="logo" />
+    <div class="logo-text" @fadeInOut *ngIf="collapsed">HMS</div>
+    <button class="btn-close" @rotate *ngIf="collapsed" (click)="closeSidenav()">
+      <mat-icon>close</mat-icon>
+    </button>
   </div>
   <ul class="sidenav-nav">
-      <li class="sidenav-nav-item" *ngFor="let data of navData">
-          <a class="sidenav-nav-link" [routerLink]="[data.routeLink]"
-              routerLinkActive="active"
-              [routerLinkActiveOptions]="{exact: true}"
-              [style.marginBottom]="data.marginBottom"
-          >
+    <ng-container *ngFor="let data of navData">
+      <li class="sidenav-nav-item" *ngIf="shouldShowNavItem(data)">
+        <a class="sidenav-nav-link" [routerLink]="[data.routeLink]"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{exact: true}"
+            [style.marginBottom]="data.marginBottom"
+        >
           <mat-icon class="sidenav-link-icon">{{ data.icon }}</mat-icon>
-              <span class="sidenav-link-text" @fadeInOut *ngIf="collapsed">
-                  {{data.label}}
-              </span>
-          </a>
+          <span class="sidenav-link-text" @fadeInOut *ngIf="collapsed">
+            {{data.label}}
+          </span>
+        </a>
       </li>
+    </ng-container>
+    <li class="sidenav-nav-item">
+      <a class="sidenav-nav-link" (click)="logout()">
+        <mat-icon class="sidenav-link-icon">exit_to_app</mat-icon>
+        <span class="sidenav-link-text" @fadeInOut *ngIf="collapsed">
+          Logout
+        </span>
+      </a>
+    </li>
   </ul>
-  <div class="logout-icon-container">
-    <a class="logout-link" >
-      <mat-icon>logout</mat-icon>
-      <span class="logout-text">Logout</span>
-    </a>
-  </div>
 </div>

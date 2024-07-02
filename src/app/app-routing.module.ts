@@ -10,18 +10,19 @@ import { MedicineInventoryComponent } from './component/medicine-inventory/medic
 import { PatientsComponent } from './component/patients/patients.component';
 import { InvoiceComponent } from './component/invoice/invoice.component';
 import { AppointmentsComponent } from './component/appointments/appointments.component';
+import { AuthGuard } from './_guards/auth.guard';
 
 const routes: Routes = [
   {path: '', component:HomeComponent},
   {path: 'register', component:RegisterComponent},
   {path: 'login', component:LoginComponent},
-  {path: 'dashboard', component:DashboardComponent},
-  {path: 'doctors', component:DoctorComponent},
-  {path: 'medical-records', component:MedicalRecordsComponent},
-  {path: 'medicine-inventory', component:MedicineInventoryComponent},
-  {path: 'patients', component:PatientsComponent},
-  {path: 'invoice', component:InvoiceComponent},
-  {path:'appointments', component:AppointmentsComponent},
+  {path: 'dashboard', component:DashboardComponent, canActivate: [AuthGuard]},
+  {path: 'doctors', component:DoctorComponent, canActivate: [AuthGuard]},
+  {path: 'medical-records', component:MedicalRecordsComponent, canActivate: [AuthGuard]},
+  {path: 'medicine-inventory', component:MedicineInventoryComponent, canActivate: [AuthGuard]},
+  {path: 'patients', component:PatientsComponent, canActivate: [AuthGuard]},
+  {path: 'invoice', component:InvoiceComponent, canActivate: [AuthGuard]},
+  {path:'appointments', component:AppointmentsComponent, canActivate: [AuthGuard]},
 
 ];
 

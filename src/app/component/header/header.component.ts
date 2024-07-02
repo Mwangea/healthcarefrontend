@@ -1,3 +1,4 @@
+import { languages } from './header-dummy-data';
 import { Component, Input } from '@angular/core';
 
 @Component({
@@ -10,10 +11,16 @@ export class HeaderComponent {
   @Input() collapsed = false;
   @Input() screenWidth = 0;
 
+
+  selectedLanguage: any;
+
+  languages = languages;
+
   constructor() {}
 
   ngOnInit():void{
 
+    this.selectedLanguage = this.languages[0];
   }
 
   getHeadClass(): string{

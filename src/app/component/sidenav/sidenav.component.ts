@@ -1,7 +1,9 @@
 import { animate, keyframes, style, transition, trigger } from '@angular/animations';
-import { Component, Output, EventEmitter, OnInit, HostListener } from '@angular/core';
+import { Component, Output, EventEmitter, OnInit, HostListener, Inject, PLATFORM_ID } from '@angular/core';
 import { navBarData } from './nav-data';
 import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+import { UserService } from '../../_service/user.service';
+import { isPlatformBrowser } from '@angular/common';
 
 interface SideNavToggle {
   screenWidth: number;
@@ -47,6 +49,9 @@ export class SidenavComponent implements OnInit {
   collapsed = false;
   screenWidth = 0;
   navData = navBarData;
+  //userRole: string;
+
+  constructor(private userService: UserService, @Inject(PLATFORM_ID) private platformId: Object){}
 
   @HostListener('window:resize', ['$event'])
   onResize(event: any) {
@@ -56,9 +61,10 @@ export class SidenavComponent implements OnInit {
       this.onToggleSideNav.emit({collapsed: this.collapsed, screenWidth: this.screenWidth});
     }
   }
-
   ngOnInit(): void {
+    if (isPlatformBrowser(this.platformId)) {
       this.screenWidth = window.innerWidth;
+    }
   }
 
   toggleCollapse(): void {
@@ -70,4 +76,14 @@ export class SidenavComponent implements OnInit {
     this.collapsed = false;
     this.onToggleSideNav.emit({collapsed: this.collapsed, screenWidth: this.screenWidth});
   }
+
+  shouldShowNavItem(navItem: any): boolean {
+    const role = this.userService.getUserRole();
+    return navItem.roles.includes(role);
+  }
+
+  logout() {
+    this.userService.logout();
+  }
+
 }

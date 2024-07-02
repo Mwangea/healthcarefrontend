@@ -27,6 +27,12 @@ import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontaweso
 //import { library } from '@fortawesome/fontawesome-svg-core';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
 import { HeaderComponent } from './component/header/header.component';
+import { OverlayModule } from '@angular/cdk/overlay';
+import { CdkMenuModule } from '@angular/cdk/menu';
+//import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
+//import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
+//import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
+
 
 @NgModule({
   declarations: [
@@ -42,7 +48,10 @@ import { HeaderComponent } from './component/header/header.component';
     MedicineInventoryComponent,
     InvoiceComponent,
     DoctorComponent,
-    HeaderComponent
+    HeaderComponent,
+   // AuthLayoutComponent,
+    //MainLayoutComponent
+
   ],
   imports: [
     BrowserModule,
@@ -54,6 +63,9 @@ import { HeaderComponent } from './component/header/header.component';
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     FontAwesomeModule,
+    OverlayModule,
+    CdkMenuModule,
+
 
   ],
   providers: [

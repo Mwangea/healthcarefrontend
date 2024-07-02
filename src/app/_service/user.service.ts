@@ -52,5 +52,12 @@ export class UserService {
     return '';
   }
 
+  logout(): void {
+
+    localStorage.removeItem('token');
+
+    window.location.href = '/login'; 
+  }
+
 
 }

@@ -12,16 +12,6 @@
       <div class="head-menu">
         <div class="head-menu-item">
           <button class="head-menu-item-btn ripple">
-            <img src="assets/flags/us.jpg" class="flag" alt="flag">
-          </button>
-        </div>
-        <div class="head-menu-item">
-          <button class="head-menu-item-btn ripple">
-            <mat-icon class="menu-icon">aspect_ratio</mat-icon>
-          </button>
-        </div>
-        <div class="head-menu-item">
-          <button class="head-menu-item-btn ripple">
             <mat-icon class="menu-icon">notifications</mat-icon>
           </button>
         </div>
@@ -35,3 +25,13 @@
     </div>
   </div>
 </div>
+<ng-template #languageOverlay>
+ <div class="overlay overlay-language overlay-fall" cdkMenu>
+  <ul>
+    <li *ngFor="let lang of languages" cdkMenuItem>
+      <img [src]="'assets/flags/' + lang.flag + '.jpg'" alt="image" >
+      <span>{{lang.language}}</span>
+    </li>
+  </ul>
+ </div>
+</ng-template>

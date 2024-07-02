@@ -14,6 +14,7 @@ import { MatMenuModule } from "@angular/material/menu"
 import { MatToolbarModule } from "@angular/material/toolbar"
 import { MatSidenavModule } from "@angular/material/sidenav"
 import { MatGridListModule } from '@angular/material/grid-list';
+import { OverlayModule } from "@angular/cdk/overlay";
 
 @NgModule({
   exports: [
@@ -31,7 +32,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
     MatMenuModule,
     MatToolbarModule,
     MatSidenavModule,
-    MatGridListModule
+    MatGridListModule,
+    OverlayModule
 
 
   ]
