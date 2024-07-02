@@ -20,7 +20,7 @@ export class LoginComponent {
   _loginform = this.builder.group({
     username: this.builder.control('', Validators.required),
     password: this.builder.control('', Validators.required),
-    role: ['admin', Validators.required]
+    role: ['doctor', Validators.required]
   })
 
   proceedlogin(): void {
@@ -55,9 +55,9 @@ export class LoginComponent {
 
     this.toastr.success(`Logged in as ${role}`);
     if (role === 'Admin') {
-      this.router.navigateByUrl('/dashboard');
+      this.router.navigateByUrl('/main/dashboard');
     } else if (role === 'Doctor') {
-      this.router.navigateByUrl('/dashboard');
+      this.router.navigateByUrl('/main/dashboard');
     } else {
       this.toastr.error('Invalid role.');
     }

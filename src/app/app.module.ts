@@ -29,6 +29,7 @@ import { faHome } from '@fortawesome/free-solid-svg-icons';
 import { HeaderComponent } from './component/header/header.component';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { CdkMenuModule } from '@angular/cdk/menu';
+import { MainLayoutComponent } from './main-layout/main-layout.component';
 //import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
 //import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
 //import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
@@ -49,6 +50,7 @@ import { CdkMenuModule } from '@angular/cdk/menu';
     InvoiceComponent,
     DoctorComponent,
     HeaderComponent,
+    MainLayoutComponent,
    // AuthLayoutComponent,
     //MainLayoutComponent
 
