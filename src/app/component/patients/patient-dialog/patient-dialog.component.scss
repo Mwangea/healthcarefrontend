@@ -1,0 +1,23 @@
+.button1{
+ color: whitesmoke !important;;
+  //text-emphasis-color: white;
+  background-color: red !important;
+  border: none;
+  border-radius: 8px;
+}
+
+
+.button2 {
+  //color: #3f51b5;
+  color: whitesmoke !important;
+
+  background-color: #3497F9 !important;
+  border: none;
+  border-radius: 8px;
+}
+
+.flex-container {
+  color: black !important;
+  display: flex; /* Enable flexbox */
+  justify-content: space-between; /* Align buttons to the right */
+}

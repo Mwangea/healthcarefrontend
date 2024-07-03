@@ -15,7 +15,7 @@ import { MatToolbarModule } from "@angular/material/toolbar"
 import { MatSidenavModule } from "@angular/material/sidenav"
 import { MatGridListModule } from '@angular/material/grid-list';
 import { OverlayModule } from "@angular/cdk/overlay";
-
+import { MatDatepickerModule } from '@angular/material/datepicker';
 @NgModule({
   exports: [
      MatCardModule,
@@ -33,7 +33,9 @@ import { OverlayModule } from "@angular/cdk/overlay";
     MatToolbarModule,
     MatSidenavModule,
     MatGridListModule,
-    OverlayModule
+    OverlayModule,
+    MatDatepickerModule
+
 
 
   ]

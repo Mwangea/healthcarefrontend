@@ -31,12 +31,20 @@ export const navBarData = [
     icon: 'inventory',
     label: 'Medicine Inventory',
     roles: ['Admin', 'Doctor']
-  },{
+  },
+  {
     routeLink: 'medical-records',
     icon: 'assignment',
     label: 'Medical Record',
     roles: ['Admin', 'Doctor']
   },
+  {
+    routeLink: 'lab-test',
+    icon: 'science',
+    label: 'Lab Test',
+    roles: ['Admin', 'Doctor']
+  },
+
   {
     routeLink: 'invoice',
     icon: 'receipt',
@@ -49,7 +57,7 @@ export const navBarData = [
     icon: 'settings',
     label: 'Settings',
     roles: ['Admin', 'Doctor'],
-    marginBottom: '70px'
+    marginBottom: '30px'
   },
  /*
 {

@@ -30,9 +30,11 @@ import { HeaderComponent } from './component/header/header.component';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { CdkMenuModule } from '@angular/cdk/menu';
 import { MainLayoutComponent } from './main-layout/main-layout.component';
-//import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
-//import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
-//import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
+import { LabtestComponent } from './component/labtest/labtest.component';
+import { PatientDialogComponent } from './component/patients/patient-dialog/patient-dialog.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+
 
 
 @NgModule({
@@ -51,8 +53,9 @@ import { MainLayoutComponent } from './main-layout/main-layout.component';
     DoctorComponent,
     HeaderComponent,
     MainLayoutComponent,
-   // AuthLayoutComponent,
-    //MainLayoutComponent
+    LabtestComponent,
+    PatientDialogComponent,
+
 
   ],
   imports: [
@@ -67,6 +70,8 @@ import { MainLayoutComponent } from './main-layout/main-layout.component';
     FontAwesomeModule,
     OverlayModule,
     CdkMenuModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
 
 
   ],

@@ -8,5 +8,5 @@ export interface doctorRegister{
 export interface LoginForm {
   Username: string;
   Password: string;
-  role: 'admin' | 'doctor'; // Assuming these are the only roles available
+  role: 'admin' | 'doctor'; 
 }

@@ -1,7 +1,9 @@
+import { PatientDialogComponent } from './../component/patients/patient-dialog/patient-dialog.component';
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { LoginForm, doctorRegister } from '../_model/user.model';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -56,8 +58,12 @@ export class UserService {
 
     localStorage.removeItem('token');
 
-    window.location.href = '/login'; 
+    window.location.href = '/login';
   }
 
+  addPatient(patient: any): Observable<any> {
+    return this.http.post<any>(`${this.baseUrl}/patients`, patient);
+  }
 
 }
+

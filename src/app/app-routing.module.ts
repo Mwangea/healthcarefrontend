@@ -12,6 +12,7 @@ import { InvoiceComponent } from './component/invoice/invoice.component';
 import { AppointmentsComponent } from './component/appointments/appointments.component';
 import { AuthGuard } from './_guards/auth.guard';
 import { MainLayoutComponent } from './main-layout/main-layout.component';
+import { LabtestComponent } from './component/labtest/labtest.component';
 
 const routes: Routes = [
   {path: '', component:HomeComponent},
@@ -28,6 +29,7 @@ const routes: Routes = [
       {path: 'patients', component:PatientsComponent},
       {path: 'invoice', component:InvoiceComponent},
       {path:'appointments', component:AppointmentsComponent},
+      {path: 'lab-test', component:LabtestComponent},
      ]},
 
 
