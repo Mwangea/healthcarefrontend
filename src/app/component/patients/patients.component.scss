@@ -36,6 +36,90 @@
 .card-body {
   padding: 1rem 1.5rem;
 }
+.search-date{
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-top: 0.5rem;
+  padding: 1rem 1.5rem;
+
+
+  .search-container{
+    //display: inline-block;
+    //position: relative;
+
+    .search{
+      border: none;
+      height: 2.75rem;
+      padding-left: 2.5rem;
+      padding-right: 1.25rem;
+      background-color: #EBF5FF;
+      box-shadow: none;
+      border-radius: 1.875rem;
+      outline: 0;
+    }
+    .search-icon{
+      position: absolute;
+      font-size: 1.5rem;
+      line-height: 2.75rem;
+      //top: 0;
+      left: 0.813rem;
+      color: #3497F9;
+      padding: 0.7rem 0.7rem;
+    }
+  }
+
+
+  .date-container{
+      border: none;
+      height: 2.75rem;
+      padding-left: 2.5rem;
+      padding-right: 1.25rem;
+     // background-color: #EBF5FF;
+      box-shadow: none;
+     // border-radius: 1.875rem;
+      //outline: 0;
+      //display: none;
+  }
+
+
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+tbody tr:hover {
+  background-color: #f2f2f2;
+}
+
+button {
+  margin-right: 5px;
+  padding: 8px 12px;
+  border: none;
+  cursor: pointer;
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 4px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
 
 @media (max-width: 576px) {
   .card-head {
@@ -50,5 +134,17 @@
 @media (min-width: 992px) {
   .card {
     margin: 1.25rem; /* Increase margin for larger screens */
+  }
+}
+
+@media (max-width: 600px) {
+  .search-date {
+    flex-direction: column; /* Stack items vertically */
+    align-items: stretch; /* Stretch items to take full width */
+  }
+
+  .search-container, .date-container {
+    width: 100%; /* Make each container take full width */
+    margin-bottom: 10px; /* Space between stacked items */
   }
 }

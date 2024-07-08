@@ -61,9 +61,6 @@ export class UserService {
     window.location.href = '/login';
   }
 
-  addPatient(patient: any): Observable<any> {
-    return this.http.post<any>(`${this.baseUrl}/patients`, patient);
-  }
+
 
 }
-

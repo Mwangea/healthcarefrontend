@@ -1,62 +1,54 @@
-import { Component } from '@angular/core';
-import { UserService } from '../../_service/user.service';
-import { PatientDialogComponent } from './patient-dialog/patient-dialog.component';
+//import { patient } from './../../_model/user.model';
+import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+//import { PatientService } from '../../_service/patient.service'; // Ensure this path is correct
+//import { Patient } from '../../models/patient.model'; // Ensure this path is correct
+import { PatientDialogComponent } from './patient-dialog/patient-dialog.component';
+import { patientService } from '../../_service/patient.service';
+import { patient } from '../../_model/user.model';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-patients',
   templateUrl: './patients.component.html',
-  styleUrl: './patients.component.scss'
+  styleUrls: ['./patients.component.scss'] // Ensure correct file extension
 })
-export class PatientsComponent {
-
-  patients: any[] = [];
+export class PatientsComponent implements OnInit {
+  patients: patient[] = [];
+  displayedColumns: string[]=["Pat_id","Pat_fname","Pat_lname","Pat_age","Gender","Pat_blood_group","Pat_phone","Pat_type","actions"];
+  dataSource = new MatTableDataSource<patient>();
   searchTerm: string = '';
   filterDate: Date = new Date();
 
-  constructor(private userService: UserService, public dialog: MatDialog){}
+  constructor(private patientService: patientService, public dialog: MatDialog) {}
 
-
- /* ngOnInit(): void {
-    this.fetchPatients();
+  ngOnInit(): void {
+    this.loadPatients();
   }
 
-  fetchPatients(): void {
-    this.userService.getPatients().subscribe(data => {
-      this.patients = data;
-    });
+  loadPatients(): void {
+    this.patientService.getPatients().subscribe(
+      (patients: patient[]) => {
+        this.patients = patients;
+        this.dataSource.data = this.patients; // Update MatTableDataSource with fetched data
+        console.log("Patients data:", this.patients);
+      },
+      error => {
+        console.error('Error loading patients:', error);
+      }
+    );
+  }
+
+  editPatient(id: number): void {
+    // Implement edit functionality if needed
+  }
+
+  viewPatientDetails(id: number): void {
+    // Implement view details functionality if needed
   }
 
   deletePatient(id: number): void {
-    this.userService.deletePatient(id).subscribe(() => {
-      this.fetchPatients();
-    });
-  }
-
-  searchPatients(): any[] {
-    return this.patients.filter(patient =>
-      patient.name.toLowerCase().includes(this.searchTerm.toLowerCase())
-    );
-  } */
-/*
-  filterByDate(): any[] {
-    const oneWeekAgo = new Date();
-    oneWeekAgo.setDate(this.filterDate.getDate() - 7);
-
-    return this.patients.filter(patient => {
-      const joinedDate = new Date(patient.joinedDate);
-      return joinedDate >= oneWeekAgo && joinedDate <= this.filterDate;
-    });
-  }
-
-  getFilteredPatients(): any[] {
-    let filteredPatients = this.searchPatients();
-
-    if (this.filterDate) {
-      filteredPatients = this.filterByDate();
-    }
-
-    return filteredPatients;
+    // Implement delete functionality if needed
   }
 
   addPatient(): void {
@@ -66,26 +58,8 @@ export class PatientsComponent {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        this.fetchPatients();
+        this.loadPatients();
       }
     });
   }
-
-  editPatient(id: number): void {
-
-  }
-
-  viewPatientDetails(id: number): void {
-
-  }
-
-*/
-addPatient(): void {
-  const dialogRef = this.dialog.open(PatientDialogComponent, {
-    width: '400px'
-  });
-
- 
-}
-
 }

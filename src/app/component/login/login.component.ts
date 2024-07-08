@@ -4,34 +4,30 @@ import { UserService } from '../../_service/user.service';
 import { ToastrService } from 'ngx-toastr';
 import { LoginForm } from '../../_model/user.model';
 import { Router } from '@angular/router';
-//import { Router } from 'express';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrl: './login.component.scss'
+  styleUrls: ['./login.component.scss'] 
 })
 export class LoginComponent {
 
-  constructor(private builder: FormBuilder, private service: UserService, private toastr: ToastrService, private router: Router) {
-
-  }
+  constructor(private builder: FormBuilder, private service: UserService, private toastr: ToastrService, private router: Router) {}
 
   _loginform = this.builder.group({
     username: this.builder.control('', Validators.required),
     password: this.builder.control('', Validators.required),
-    role: ['doctor', Validators.required]
-  })
+    role: this.builder.control('doctor', Validators.required)
+  });
 
   proceedlogin(): void {
-
     if (this._loginform.valid) {
       let _login: LoginForm = {
         Username: this._loginform.value.username as string,
         Password: this._loginform.value.password as string,
         role: this._loginform.value.role as 'admin' | 'doctor',
-
       };
+
       this.service.proceedlogin(_login).subscribe(
         (response: any) => {
           this.handleLoginSuccess(response.token);
@@ -45,15 +41,11 @@ export class LoginComponent {
 
   handleLoginSuccess(token: string): void {
     const decodedToken = this.service.decodeToken(token);
-    //console.log('Decoded token:', decodedToken);
-
     const role = decodedToken['http://schemas.microsoft.com/ws/2008/06/identity/claims/role'];
-    //console.log('Role extracted from token:', role);
 
     localStorage.setItem('token', token);
-    //console.log('Token stored in local storage.');
-
     this.toastr.success(`Logged in as ${role}`);
+
     if (role === 'Admin') {
       this.router.navigateByUrl('/main/dashboard');
     } else if (role === 'Doctor') {
@@ -70,5 +62,4 @@ export class LoginComponent {
       this.toastr.error('Login failed. Please try again.');
     }
   }
-
 }

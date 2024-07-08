@@ -1,28 +1,57 @@
 <h1 mat-dialog-title>Add New Patient</h1>
 <div mat-dialog-content>
-  <form [formGroup]="addPatientForm" (ngSubmit)="onSubmit()">
+  <form [formGroup]="addPatientForm">
     <mat-form-field>
-      <mat-label>Patient Name</mat-label>
-      <input matInput formControlName="name" required>
+      <mat-label>First Name</mat-label>
+      <input matInput formControlName="Pat_fname" required>
     </mat-form-field>
-
+    <mat-form-field>
+      <mat-label>Last Name</mat-label>
+      <input matInput formControlName="Pat_lname" required>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Date of Birth</mat-label>
+      <input matInput formControlName="Pat_dob" [matDatepicker]="pickerDob" required>
+      <mat-datepicker-toggle matSuffix [for]="pickerDob"></mat-datepicker-toggle>
+      <mat-datepicker #pickerDob></mat-datepicker>
+    </mat-form-field>
     <mat-form-field>
       <mat-label>Age</mat-label>
-      <input matInput formControlName="age" required>
+      <input matInput formControlName="Pat_age" required>
     </mat-form-field>
-
     <mat-form-field>
-      <mat-label>Gender</mat-label>
-      <mat-select formControlName="gender" required>
-        <mat-option value="male">Male</mat-option>
-        <mat-option value="female">Female</mat-option>
-        <mat-option value="other">Other</mat-option>
-      </mat-select>
+      <mat-label>Number</mat-label>
+      <input matInput formControlName="Pat_number" required>
     </mat-form-field>
-
+    <mat-form-field>
+      <mat-label>Address</mat-label>
+      <input matInput formControlName="Pat_addr" required>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Phone</mat-label>
+      <input matInput formControlName="Pat_phone" required>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Patient Type</mat-label>
+      <input matInput formControlName="Pat_type" required>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Date Joined</mat-label>
+      <input matInput formControlName="Pat_date_joined" [matDatepicker]="pickerDateJoined" required>
+      <mat-datepicker-toggle matSuffix [for]="pickerDateJoined"></mat-datepicker-toggle>
+      <mat-datepicker #pickerDateJoined></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Ailment</mat-label>
+      <input matInput formControlName="Pat_ailment" required>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Discharge Status</mat-label>
+      <input matInput formControlName="Pat_discharge_status" required>
+    </mat-form-field>
     <mat-form-field>
       <mat-label>Blood Group</mat-label>
-      <mat-select formControlName="bloodGroup" required>
+      <mat-select formControlName="Pat_blood_group" required>
         <mat-option value="A+">A+</mat-option>
         <mat-option value="A-">A-</mat-option>
         <mat-option value="B+">B+</mat-option>
@@ -33,22 +62,14 @@
         <mat-option value="O-">O-</mat-option>
       </mat-select>
     </mat-form-field>
-
     <mat-form-field>
-      <mat-label>Phone Number</mat-label>
-      <input matInput formControlName="phoneNumber" required>
+      <mat-label>Gender</mat-label>
+      <input matInput formControlName="Gender" required>
     </mat-form-field>
-
-    <mat-form-field>
-      <mat-label>Joined Date</mat-label>
-      <input matInput formControlName="joinedDate" [matDatepicker]="picker" required>
-      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker>
-    </mat-form-field>
-
-    <div mat-dialog-actions class="flex-container">
-      <button mat-button class="button1" color="warn" (click)="onCancel()">Cancel</button>
-      <button mat-button class="button2"  type="submit" [disabled]="addPatientForm.invalid">Add</button>
-    </div>
   </form>
 </div>
+<div mat-dialog-actions class="flex-container">
+  <button mat-button class="button1" (click)="onCancel()">Cancel</button>
+  <button mat-button class="button2" (click)="onSubmit()" cdkFocusInitial>Save</button>
+</div>
+

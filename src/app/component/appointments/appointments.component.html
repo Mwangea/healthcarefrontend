@@ -1,1 +1,15 @@
-<p>appointments works!</p>
+<h1>Appointment</h1>
+<div class="card">
+  <div class="card-head">
+    Appointment
+    <button mat-button class="new-patient-button" (click)="addAppointment()">
+      + Add Appointment
+    </button>
+    <button mat-icon-button (click)="toggleAppointments()">
+      <mat-icon>{{ showAppointments ? 'expand_less' : 'expand_more' }}</mat-icon>
+    </button>
+  </div>
+  <div class="card-body" [@expandAnimation]>
+    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quas ducimus soluta, quasi aut ipsa non, ullam enim rem repudiandae, vitae provident animi. Inventore rerum, voluptas optio dignissimos blanditiis modi illo!
+  </div>
+</div>

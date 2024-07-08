@@ -12,7 +12,7 @@ import { MaterialModule } from './material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { HttpClient, provideHttpClient, withFetch } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule, provideToastr } from 'ngx-toastr';
 import { SidenavComponent } from './component/sidenav/sidenav.component';
@@ -34,6 +34,13 @@ import { LabtestComponent } from './component/labtest/labtest.component';
 import { PatientDialogComponent } from './component/patients/patient-dialog/patient-dialog.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { AppointmentsComponent } from './component/appointments/appointments.component';
+import { MatTableModule } from '@angular/material/table';
+//import { AuthInterceptor } from './auth.interceptor';
+//import { AuthInterceptor } from './auth.interceptor';
+//import { UserService } from './_service/user.service';
+//import { AuthInterceptor } from './auth.interceptor';
+
 
 
 
@@ -55,6 +62,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     MainLayoutComponent,
     LabtestComponent,
     PatientDialogComponent,
+    AppointmentsComponent
 
 
   ],
@@ -72,6 +80,10 @@ import { MatNativeDateModule } from '@angular/material/core';
     CdkMenuModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    HttpClientModule,
+    MatTableModule,
+
+
 
 
   ],
@@ -79,12 +91,11 @@ import { MatNativeDateModule } from '@angular/material/core';
     provideClientHydration(),
     provideAnimationsAsync(),
     provideHttpClient(withFetch()),
-    provideToastr({closeButton: true})
+    provideToastr({closeButton: true}),
+
+
+
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {
-  constructor(library: FaIconLibrary){
-    library.addIcons(faHome)
-  }
-}
+export class AppModule {}

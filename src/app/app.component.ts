@@ -24,7 +24,5 @@ export class AppComponent {
     this.isSideNavCollapsed = data.collapsed;
   }
 
-  isLoggedIn(): boolean{
-    return this.UserService.getUserRole() !== '';
-  }
+ 
 }
