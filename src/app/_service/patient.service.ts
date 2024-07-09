@@ -13,23 +13,18 @@ export class patientService {
 
   constructor(private http:HttpClient) {}
 
-  addPatient(patient: any): Observable<any> {
-    const token = localStorage.getItem('token');
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`
-    });
-    return this.http.post<any>(`${this.baseUrl}patient`, patient, { headers });
+
+  Getall(){
+    return this.http.get<patient[]>(`${this.baseUrl}patient`);
+  }
+  
+  addPatient(_data:patient){
+    return this.http.post(`${this.baseUrl}patient`,_data);
   }
 
-  getPatients(): Observable<patient[]> {
-    const token = localStorage.getItem('token');
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${token}`
-    });
-    return this.http.get<patient[]>(`${this.baseUrl}patient`, { headers });
-  }
+
+
+
 }
 
 

@@ -2,7 +2,7 @@ import { PatientDialogComponent } from './../component/patients/patient-dialog/p
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { LoginForm, doctorRegister } from '../_model/user.model';
+import { LoginForm, appointment, doctorRegister } from '../_model/user.model';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -42,13 +42,11 @@ export class UserService {
   }
 
   getUserRole(): string {
-    if (typeof localStorage !== 'undefined') {
-      const token = localStorage.getItem('token');
-      if (token) {
-        const decodedToken = this.decodeToken(token);
-        if (decodedToken) {
-          return decodedToken['http://schemas.microsoft.com/ws/2008/06/identity/claims/role'];
-        }
+    const token = localStorage.getItem('token');
+    if (token) {
+      const decodedToken = this.decodeToken(token);
+      if (decodedToken) {
+        return decodedToken['http://schemas.microsoft.com/ws/2008/06/identity/claims/role'];
       }
     }
     return '';
@@ -60,7 +58,6 @@ export class UserService {
 
     window.location.href = '/login';
   }
-
 
 
 }

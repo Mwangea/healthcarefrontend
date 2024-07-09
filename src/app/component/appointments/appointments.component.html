@@ -2,14 +2,47 @@
 <div class="card">
   <div class="card-head">
     Appointment
-    <button mat-button class="new-patient-button" (click)="addAppointment()">
+    <button mat-button class="new-patient-button" >
       + Add Appointment
     </button>
-    <button mat-icon-button (click)="toggleAppointments()">
-      <mat-icon>{{ showAppointments ? 'expand_less' : 'expand_more' }}</mat-icon>
-    </button>
   </div>
-  <div class="card-body" [@expandAnimation]>
-    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quas ducimus soluta, quasi aut ipsa non, ullam enim rem repudiandae, vitae provident animi. Inventore rerum, voluptas optio dignissimos blanditiis modi illo!
+  <div class="card-body">
+     <mat-card-content>
+      <table mat-table [dataSource]="datasource">
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef>ID</th>
+          <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+        </ng-container>
+        <ng-container matColumnDef="patientId">
+          <th mat-header-cell *matHeaderCellDef>Patient</th>
+          <td mat-cell *matCellDef="let element">{{ element.patientId }}</td>
+        </ng-container>
+        <ng-container matColumnDef="doctorId">
+          <th mat-header-cell *matHeaderCellDef>Doctor</th>
+          <td mat-cell *matCellDef="let element">{{ element.doctorId }}</td>
+        </ng-container>
+        <ng-container matColumnDef="appointmentDate">
+          <th mat-header-cell *matHeaderCellDef>Date</th>
+          <td mat-cell *matCellDef="let element">{{ element.appointmentDate }}</td>
+        </ng-container>
+        <ng-container matColumnDef="status">
+          <th mat-header-cell *matHeaderCellDef>status</th>
+          <td mat-cell *matCellDef="let element">{{ element.status }}</td>
+        </ng-container>
+        <ng-container matColumnDef="notes">
+          <th mat-header-cell *matHeaderCellDef>Notes</th>
+          <td mat-cell *matCellDef="let element">{{ element.notes }}</td>
+        </ng-container>
+        <ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef>Action</th>
+          <td mat-cell *matCellDef="let element">
+            <button mat-button color="primary" >Edit</button>
+            <button mat-button color="warn" >Delete</button>
+          </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+     </mat-card-content>
   </div>
 </div>

@@ -12,7 +12,7 @@ import { MaterialModule } from './material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule, provideHttpClient, withFetch, withInterceptors } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule, provideToastr } from 'ngx-toastr';
 import { SidenavComponent } from './component/sidenav/sidenav.component';
@@ -36,6 +36,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { AppointmentsComponent } from './component/appointments/appointments.component';
 import { MatTableModule } from '@angular/material/table';
+import { tokenInterceptor } from './_service/httpinterceptor.interceptor';
 //import { AuthInterceptor } from './auth.interceptor';
 //import { AuthInterceptor } from './auth.interceptor';
 //import { UserService } from './_service/user.service';
@@ -90,7 +91,8 @@ import { MatTableModule } from '@angular/material/table';
   providers: [
     provideClientHydration(),
     provideAnimationsAsync(),
-    provideHttpClient(withFetch()),
+    provideHttpClient(withFetch(), withInterceptors([tokenInterceptor])),
+    //provideHttpClient(withInterceptors([tokenInterceptor])),
     provideToastr({closeButton: true}),
 
 

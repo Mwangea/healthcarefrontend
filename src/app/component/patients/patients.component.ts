@@ -11,14 +11,14 @@ import { MatTableDataSource } from '@angular/material/table';
 @Component({
   selector: 'app-patients',
   templateUrl: './patients.component.html',
-  styleUrls: ['./patients.component.scss'] // Ensure correct file extension
+  styleUrls: ['./patients.component.scss'] 
 })
 export class PatientsComponent implements OnInit {
-  patients: patient[] = [];
-  displayedColumns: string[]=["Pat_id","Pat_fname","Pat_lname","Pat_age","Gender","Pat_blood_group","Pat_phone","Pat_type","actions"];
-  dataSource = new MatTableDataSource<patient>();
-  searchTerm: string = '';
-  filterDate: Date = new Date();
+  patientList!: patient[];
+  displayedColumns: string[]=["Pat_id","Pat_fname","Pat_lname","Pat_age","Gender","Pat_blood_group","Pat_phone","Pat_type","action"];
+  dataSource: any;
+  //searchTerm: string = '';
+  //filterDate: Date = new Date();
 
   constructor(private patientService: patientService, public dialog: MatDialog) {}
 
@@ -27,16 +27,11 @@ export class PatientsComponent implements OnInit {
   }
 
   loadPatients(): void {
-    this.patientService.getPatients().subscribe(
-      (patients: patient[]) => {
-        this.patients = patients;
-        this.dataSource.data = this.patients; // Update MatTableDataSource with fetched data
-        console.log("Patients data:", this.patients);
-      },
-      error => {
-        console.error('Error loading patients:', error);
-      }
-    );
+    this.patientService.Getall().subscribe(item => {
+    this.patientList = item;
+    this.dataSource = new MatTableDataSource<patient>(this.patientList);
+    console.log(this.patientList);
+  })
   }
 
   editPatient(id: number): void {

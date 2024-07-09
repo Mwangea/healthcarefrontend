@@ -21,3 +21,13 @@ export interface patient {
   Pat_type: string;
   Pat_id: number;
 }
+
+export interface appointment {
+
+  id:string;
+  patientId: string;
+  doctorId: string;
+  appointmentDate: number;
+  status: string;
+  notes:string;
+}

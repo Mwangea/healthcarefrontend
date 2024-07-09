@@ -1,4 +1,3 @@
-<!-- patients.component.html -->
 
 <h1>Patients</h1>
 <div class="card">
@@ -12,51 +11,52 @@
       <input type="search" placeholder="search..." class="search">
     </div>
   </div>
-  <mat-card-content>
-    <table mat-table [dataSource]="dataSource">
-      <ng-container matColumnDef="Pat_id">
-        <th mat-header-cell *matHeaderCellDef>ID</th>
-        <td mat-cell *matCellDef="let element">{{ element.Pat_id }}</td>
-      </ng-container>
-      <ng-container matColumnDef="Pat_fname">
-        <th mat-header-cell *matHeaderCellDef>First Name</th>
-        <td mat-cell *matCellDef="let element">{{ element.Pat_fname }}</td>
-      </ng-container>
-      <ng-container matColumnDef="Pat_lname">
-        <th mat-header-cell *matHeaderCellDef>Last Name</th>
-        <td mat-cell *matCellDef="let element">{{ element.Pat_lname }}</td>
-      </ng-container>
-      <ng-container matColumnDef="Pat_age">
-        <th mat-header-cell *matHeaderCellDef>Age</th>
-        <td mat-cell *matCellDef="let element">{{ element.Pat_age }}</td>
-      </ng-container>
-      <ng-container matColumnDef="Gender">
-        <th mat-header-cell *matHeaderCellDef>Gender</th>
-        <td mat-cell *matCellDef="let element">{{ element.Gender }}</td>
-      </ng-container>
-      <ng-container matColumnDef="Pat_blood_group">
-        <th mat-header-cell *matHeaderCellDef>Blood Group</th>
-        <td mat-cell *matCellDef="let element">{{ element.Pat_blood_group }}</td>
-      </ng-container>
-      <ng-container matColumnDef="Pat_phone">
-        <th mat-header-cell *matHeaderCellDef>Phone</th>
-        <td mat-cell *matCellDef="let element">{{ element.Pat_phone }}</td>
-      </ng-container>
-      <ng-container matColumnDef="Pat_type">
-        <th mat-header-cell *matHeaderCellDef>Type</th>
-        <td mat-cell *matCellDef="let element">{{ element.Pat_type }}</td>
-      </ng-container>
-      <ng-container matColumnDef="actions">
-        <th mat-header-cell *matHeaderCellDef>Actions</th>
-        <td mat-cell *matCellDef="let element">
-          <button mat-button (click)="editPatient(element.Pat_id)">Edit</button>
-          <button mat-button (click)="deletePatient(element.Pat_id)">Delete</button>
-          <button mat-button (click)="viewPatientDetails(element.Pat_id)">View</button>
-        </td>
-      </ng-container>
+  <div class="card-body">
+    <mat-card-content>
+     <table mat-table [dataSource]="dataSource">
+       <ng-container matColumnDef="Pat_id">
+         <th mat-header-cell *matHeaderCellDef>ID</th>
+         <td mat-cell *matCellDef="let element">{{ element.Pat_id }}</td>
+       </ng-container>
+       <ng-container matColumnDef="Pat_fname">
+         <th mat-header-cell *matHeaderCellDef>Patient </th>
+         <td mat-cell *matCellDef="let element">{{ element.Pat_fname }}</td>
+       </ng-container>
+       <ng-container matColumnDef="Pat_lname">
+         <th mat-header-cell *matHeaderCellDef>Last Name</th>
+         <td mat-cell *matCellDef="let element">{{ element.Pat_lname }}</td>
+       </ng-container>
+       <ng-container matColumnDef="Pat_age">
+         <th mat-header-cell *matHeaderCellDef>Age</th>
+         <td mat-cell *matCellDef="let element">{{ element.Pat_age }}</td>
+       </ng-container>
+       <ng-container matColumnDef="Gender">
+         <th mat-header-cell *matHeaderCellDef>Gender</th>
+         <td mat-cell *matCellDef="let element">{{ element.Gender }}</td>
+       </ng-container>
+       <ng-container matColumnDef="Pat_blood_group">
+         <th mat-header-cell *matHeaderCellDef>Blood Group</th>
+         <td mat-cell *matCellDef="let element">{{ element.Pat_blood_group }}</td>
+       </ng-container>
+       <ng-container matColumnDef="Pat_phone">
+         <th mat-header-cell *matHeaderCellDef>Phone</th>
+         <td mat-cell *matCellDef="let element">{{ element.Pat_phone }}</td>
+       </ng-container>
+       <ng-container matColumnDef="Pat_type">
+         <th mat-header-cell *matHeaderCellDef>Type</th>
+         <td mat-cell *matCellDef="let element">{{ element.Pat_type }}</td>
+       </ng-container>
+       <ng-container matColumnDef="action">
+         <th mat-header-cell *matHeaderCellDef>Action</th>
+         <td mat-cell *matCellDef="let element">
+           <button mat-button color="primary" >Edit</button>
+           <button mat-button color="warn" >Delete</button>
+         </td>
+       </ng-container>
+       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+     </table>
+    </mat-card-content>
+ </div>
 
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
-  </mat-card-content>
 </div>
