@@ -52,6 +52,15 @@ export class UserService {
     return '';
   }
 
+  getCurrentUsername(): string {
+    const token = localStorage.getItem('token');
+    if (token) {
+      const decodedToken = this.decodeToken(token);
+      return decodedToken.sub; // or the property that holds the username
+    }
+    return '';
+  }
+
   logout(): void {
 
     localStorage.removeItem('token');

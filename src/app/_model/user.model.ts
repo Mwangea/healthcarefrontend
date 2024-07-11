@@ -31,3 +31,9 @@ export interface appointment {
   status: string;
   notes:string;
 }
+
+export interface doctor{
+  Username: string;
+  Email: string;
+  Specialty: string
+}

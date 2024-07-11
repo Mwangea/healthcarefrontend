@@ -37,6 +37,9 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { AppointmentsComponent } from './component/appointments/appointments.component';
 import { MatTableModule } from '@angular/material/table';
 import { tokenInterceptor } from './_service/httpinterceptor.interceptor';
+import { AppointmentDialogComponent } from './component/appointments/appointment-dialog/appointment-dialog.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+//import { AppointmentDialogComponent } from './appointments/appointment-dialog/appointment-dialog.component';
 //import { AuthInterceptor } from './auth.interceptor';
 //import { AuthInterceptor } from './auth.interceptor';
 //import { UserService } from './_service/user.service';
@@ -63,7 +66,10 @@ import { tokenInterceptor } from './_service/httpinterceptor.interceptor';
     MainLayoutComponent,
     LabtestComponent,
     PatientDialogComponent,
-    AppointmentsComponent
+    AppointmentsComponent,
+    AppointmentDialogComponent,
+
+
 
 
   ],
@@ -83,6 +89,7 @@ import { tokenInterceptor } from './_service/httpinterceptor.interceptor';
     MatNativeDateModule,
     HttpClientModule,
     MatTableModule,
+    NgxPaginationModule
 
 
 

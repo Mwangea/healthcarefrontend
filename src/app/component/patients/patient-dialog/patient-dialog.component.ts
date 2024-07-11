@@ -22,8 +22,9 @@ export class PatientDialogComponent {
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
     this.addPatientForm = this.fb.group({
-      Pat_fname: ['', Validators.required],
-      Pat_lname: ['', Validators.required],
+      //Pat_fname: ['', Validators.required],
+      Username: ['', Validators.required],
+      //Pat_lname: ['', Validators.required],
       Pat_dob: ['', Validators.required],
       Pat_age: ['', Validators.required],
       Pat_number: ['', Validators.required],

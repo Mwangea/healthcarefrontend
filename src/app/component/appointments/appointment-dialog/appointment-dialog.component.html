@@ -1,0 +1,42 @@
+<h2 mat-dialog-title>Add Appointment</h2>
+<div mat-dialog-content>
+  <form [formGroup]="addAppointmentForm" (ngSubmit)="onSubmit()">
+    <mat-form-field>
+      <mat-label>Patient Username</mat-label>
+      <mat-select formControlName="PatientUsername">
+        <mat-option *ngFor="let patient of patients" [value]="patient.username">{{ patient.username }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field *ngIf="role === 'Admin'">
+      <mat-label>Doctor Username</mat-label>
+      <mat-select formControlName="DoctorUsername">
+        <mat-option *ngFor="let doctor of doctors" [value]="doctor.username">{{ doctor.username }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field *ngIf="role === 'Doctor'">
+      <input matInput placeholder="Doctor Username" formControlName="DoctorUsername" [disabled]="true">
+    </mat-form-field>
+
+
+    <mat-form-field>
+      <input matInput [matDatepicker]="picker" placeholder="Appointment Date" formControlName="DateOnly">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput type="time" placeholder="Time" formControlName="TimeOnly">
+    </mat-form-field>
+
+
+    <mat-form-field>
+      <textarea matInput placeholder="Notes" formControlName="Notes"></textarea>
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button mat-button color="primary" [disabled]="!addAppointmentForm.valid" (click)="onSubmit()">Save</button>
+</div>

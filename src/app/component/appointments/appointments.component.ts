@@ -1,30 +1,28 @@
-//import { UserService } from 'src/app/services/user.service';
+import { MatDialog } from '@angular/material/dialog';
 import { appointment } from './../../_model/user.model';
-import { animate, state, style, transition, trigger } from '@angular/animations';
-import { Component, OnInit } from '@angular/core';
-//import { UserService } from '../../_service/user.service';
-import { HttpClient } from '@angular/common/http';
-import { environment } from '../../../environments/environment';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { appointmentService } from '../../_service/appointment.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { UserService } from '../../_service/user.service';
-
+import { AppointmentDialogComponent } from './appointment-dialog/appointment-dialog.component';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-appointments',
   templateUrl: './appointments.component.html',
   styleUrls: ['./appointments.component.scss'],
-
 })
-export class AppointmentsComponent implements OnInit{
+export class AppointmentsComponent implements OnInit {
 
   appointmentList!: appointment[];
-  displayedColumns:string[] = ["id","patientId","doctorId","appointmentDate","status","notes","action"];
-  datasource:any;
+  displayedColumns: string[] = ["time", "patientName", "doctorName", "date", "status", "notes", "action"];
+  datasource: any;
   role: string = '';
   doctorId: string | undefined;
 
-  constructor(private service:appointmentService, private userService: UserService){}
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+
+  constructor(private service: appointmentService, private userService: UserService, public dialog: MatDialog) {}
 
   ngOnInit(): void {
     this.role = this.userService.getUserRole();
@@ -44,6 +42,10 @@ export class AppointmentsComponent implements OnInit{
     }
   }
 
+  ngAfterViewInit() {
+    this.datasource.paginator = this.paginator;
+  }
+
   LoadDoctorAppointments(doctorId: string | undefined) {
     if (doctorId) {
       this.service.GetAppointmentsByDoctor(doctorId).subscribe(
@@ -60,7 +62,6 @@ export class AppointmentsComponent implements OnInit{
     }
   }
 
-
   LoadAllAppointments() {
     this.service.GetAllAppointments().subscribe(
       item => {
@@ -73,5 +74,16 @@ export class AppointmentsComponent implements OnInit{
     );
   }
 
-}
+  createAppointment(): void {
+    const dialogRef = this.dialog.open(AppointmentDialogComponent, {
+      width: '500px',
+      data: { currentUsername: this.userService.getCurrentUsername() }
+    });
 
+    dialogRef.afterClosed().subscribe(response => {
+      if (response) {
+        this.LoadAllAppointments();
+      }
+    });
+  }
+}

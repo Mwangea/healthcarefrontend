@@ -6,6 +6,8 @@
   margin: 1.25rem 0;
   box-shadow: 0 .25rem .5rem #e6edef;
   font-family: Poppins;
+  //margin-bottom: 5rem;
+  //margin: 1.25rem 0;
 }
 
 .card-head {
@@ -35,6 +37,7 @@
 
 .card-body {
   padding: 1rem 1.5rem;
+  margin-top: -26px;
 }
 
 @media (max-width: 576px) {

@@ -2,28 +2,28 @@
 <div class="card">
   <div class="card-head">
     Appointment
-    <button mat-button class="new-patient-button" >
+    <button mat-button class="new-patient-button" (click)="createAppointment()">
       + Add Appointment
     </button>
   </div>
   <div class="card-body">
      <mat-card-content>
-      <table mat-table [dataSource]="datasource">
-        <ng-container matColumnDef="id">
-          <th mat-header-cell *matHeaderCellDef>ID</th>
-          <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+      <table mat-table [dataSource]="datasource" >
+        <ng-container matColumnDef="time">
+          <th mat-header-cell *matHeaderCellDef>Time</th>
+          <td mat-cell *matCellDef="let element">{{ element.time }}</td>
         </ng-container>
-        <ng-container matColumnDef="patientId">
+        <ng-container matColumnDef="patientName">
           <th mat-header-cell *matHeaderCellDef>Patient</th>
-          <td mat-cell *matCellDef="let element">{{ element.patientId }}</td>
+          <td mat-cell *matCellDef="let element">{{ element.patientName }}</td>
         </ng-container>
-        <ng-container matColumnDef="doctorId">
+        <ng-container matColumnDef="doctorName">
           <th mat-header-cell *matHeaderCellDef>Doctor</th>
-          <td mat-cell *matCellDef="let element">{{ element.doctorId }}</td>
+          <td mat-cell *matCellDef="let element">Dr.{{ element.doctorName }}</td>
         </ng-container>
-        <ng-container matColumnDef="appointmentDate">
+        <ng-container matColumnDef="date">
           <th mat-header-cell *matHeaderCellDef>Date</th>
-          <td mat-cell *matCellDef="let element">{{ element.appointmentDate }}</td>
+          <td mat-cell *matCellDef="let element">{{ element.date }}</td>
         </ng-container>
         <ng-container matColumnDef="status">
           <th mat-header-cell *matHeaderCellDef>status</th>
@@ -42,7 +42,9 @@
         </ng-container>
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
       </table>
+      <mat-paginator [length]="appointmentList.length" [pageSize]="7" [pageSizeOptions]="[ 7]" showFirstLastButtons></mat-paginator>
      </mat-card-content>
   </div>
 </div>
