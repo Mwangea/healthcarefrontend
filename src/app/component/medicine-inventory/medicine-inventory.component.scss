@@ -1,0 +1,57 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  border-radius: .5rem;
+  background-color: #fff;
+  margin: 1.25rem 0;
+  box-shadow: 0 .25rem .5rem #e6edef;
+  font-family: Poppins;
+  //margin-bottom: 5rem;
+  //margin: 1.25rem 0;
+}
+
+.card-head {
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid #edf1f7;
+  color: #242222;
+  display: flex;
+  justify-content: space-between; /* Ensure space between elements */
+  align-items: center; /* Align items vertically */
+  font-size: 19px;
+  font-weight: 700;
+}
+
+.new-patient-button {
+  background-color: #3497F9;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  min-width: 110px; /* Ensure button has a minimum width */
+  height: 32px;
+  color: #FFF;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: normal;
+  text-align: center;
+}
+
+.card-body {
+  padding: 1rem 1.5rem;
+  margin-top: -26px;
+}
+
+@media (max-width: 576px) {
+  .card-head {
+    flex-direction: column; /* Stack items vertically on smaller screens */
+    align-items: flex-start; /* Adjust alignment as needed */
+  }
+  .new-patient-button {
+    margin-top: 1rem; /* Add spacing between button and other elements */
+  }
+}
+
+@media (min-width: 992px) {
+  .card {
+    margin: 1.25rem; /* Increase margin for larger screens */
+  }
+}

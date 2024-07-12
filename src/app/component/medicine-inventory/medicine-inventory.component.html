@@ -1,1 +1,50 @@
-<p>medicine-inventory works!</p>
+<h1>Appointment</h1>
+<div class="card">
+  <div class="card-head">
+    Medicine Inventory
+    <button mat-button class="new-patient-button" >
+      + Add Medicine
+    </button>
+  </div>
+  <div class="card-body">
+     <mat-card-content>
+      <table mat-table [dataSource]="dataSource" >
+        <ng-container matColumnDef="productName">
+          <th mat-header-cell *matHeaderCellDef>productName</th>
+          <td mat-cell *matCellDef="let element">{{ element.productName }}</td>
+        </ng-container>
+        <ng-container matColumnDef="type">
+          <th mat-header-cell *matHeaderCellDef>type</th>
+          <td mat-cell *matCellDef="let element">{{ element.type }}</td>
+        </ng-container>
+        <ng-container matColumnDef="pricePerPack">
+          <th mat-header-cell *matHeaderCellDef>price each</th>
+          <td mat-cell *matCellDef="let element">{{ element.pricePerPack }}/=</td>
+        </ng-container>
+        <ng-container matColumnDef="stock">
+          <th mat-header-cell *matHeaderCellDef>stock</th>
+          <td mat-cell *matCellDef="let element">{{ element.stock }}</td>
+        </ng-container>
+        <ng-container matColumnDef="expiryDate">
+          <th mat-header-cell *matHeaderCellDef>expiryDate</th>
+          <td mat-cell *matCellDef="let element">{{ element.expiryDate }}</td>
+        </ng-container>
+        <ng-container matColumnDef="manufacturer">
+          <th mat-header-cell *matHeaderCellDef>manufacturer</th>
+          <td mat-cell *matCellDef="let element">{{ element.manufacturer }}</td>
+        </ng-container>
+        <ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef>Action</th>
+          <td mat-cell *matCellDef="let element">
+            <button mat-button color="primary" >Edit</button>
+            <button mat-button color="warn" >Delete</button>
+          </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+      </table>
+      <mat-paginator [length]="medicineList.length" [pageSize]="7" [pageSizeOptions]="[ 7]" showFirstLastButtons></mat-paginator>
+     </mat-card-content>
+  </div>
+</div>

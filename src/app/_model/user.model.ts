@@ -37,3 +37,12 @@ export interface doctor{
   Email: string;
   Specialty: string
 }
+
+export interface medicine {
+ ProductName: string;
+ Type: string;
+ PricePerPack:number;
+ Stock: number;
+ ExpiryDate: number;
+ Manufacturer: string;
+}
