@@ -30,4 +30,5 @@ export class DoctorService {
     return this.http.delete(`${this.baseUrl}doctors/${doctorId}`);
   }
 
+  
 }

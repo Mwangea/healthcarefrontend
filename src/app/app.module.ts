@@ -39,6 +39,7 @@ import { MatTableModule } from '@angular/material/table';
 import { tokenInterceptor } from './_service/httpinterceptor.interceptor';
 import { AppointmentDialogComponent } from './component/appointments/appointment-dialog/appointment-dialog.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { SettingsComponent } from './component/settings/settings.component';
 //import { AppointmentDialogComponent } from './appointments/appointment-dialog/appointment-dialog.component';
 //import { AuthInterceptor } from './auth.interceptor';
 //import { AuthInterceptor } from './auth.interceptor';
@@ -68,6 +69,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     PatientDialogComponent,
     AppointmentsComponent,
     AppointmentDialogComponent,
+    SettingsComponent,
 
 
 
