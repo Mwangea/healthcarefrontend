@@ -46,3 +46,12 @@ export interface medicine {
  ExpiryDate: number;
  Manufacturer: string;
 }
+
+export interface medicalRecord{
+  patientUsername: string;
+  date: number;
+  diagnosis: string;
+  treatment: string;
+  notes: string;
+  
+}
