@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import { environment } from "../../environments/environment";
 import { HttpClient } from "@angular/common/http";
 import { doctor } from "../_model/user.model";
+import { Observable } from "rxjs";
 
 @Injectable({
   providedIn: "root"
@@ -22,13 +23,13 @@ export class DoctorService {
   }
 
 
-  UpdateDoctor(_data:doctor){
-    return this.http.put(`${this.baseUrl}doctors`,_data);
+  UpdateDoctor(doctorId:string, doctorData:any): Observable<any> {
+    return this.http.put(`${this.baseUrl}doctor/update/${doctorId}`, doctorData);
   }
 
   DeleteDoctor(doctorId:string){
-    return this.http.delete(`${this.baseUrl}doctors/${doctorId}`);
+    return this.http.delete(`${this.baseUrl}doctor/delete/${doctorId}`);
   }
 
-  
+
 }

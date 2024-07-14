@@ -40,6 +40,12 @@ import { tokenInterceptor } from './_service/httpinterceptor.interceptor';
 import { AppointmentDialogComponent } from './component/appointments/appointment-dialog/appointment-dialog.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { SettingsComponent } from './component/settings/settings.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { ConfirmationDialogComponent } from './component/appointments/confirmation-dialog/confirmation-dialog.component';
+import { EditappointmentDialogComponent } from './component/appointments/editappointment-dialog/editappointment-dialog.component';
+import { EditdoctorDialogComponent } from './component/doctor/editdoctor-dialog/editdoctor-dialog.component';
+import { DoctorDialogComponent } from './component/doctor/doctor-dialog/doctor-dialog.component';
+import { DoctorConfirmationDialogComponent } from './component/doctor/doctor-confirmation-dialog/doctor-confirmation-dialog.component';
 //import { AppointmentDialogComponent } from './appointments/appointment-dialog/appointment-dialog.component';
 //import { AuthInterceptor } from './auth.interceptor';
 //import { AuthInterceptor } from './auth.interceptor';
@@ -70,6 +76,11 @@ import { SettingsComponent } from './component/settings/settings.component';
     AppointmentsComponent,
     AppointmentDialogComponent,
     SettingsComponent,
+    ConfirmationDialogComponent,
+    EditappointmentDialogComponent,
+    EditdoctorDialogComponent,
+    DoctorDialogComponent,
+    DoctorConfirmationDialogComponent,
 
 
 
@@ -91,7 +102,8 @@ import { SettingsComponent } from './component/settings/settings.component';
     MatNativeDateModule,
     HttpClientModule,
     MatTableModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    MatSnackBarModule
 
 
 

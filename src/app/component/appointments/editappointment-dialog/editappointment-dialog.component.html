@@ -1,0 +1,58 @@
+<h1 mat-dialog-title>Edit Appointment</h1>
+<div mat-dialog-content>
+  <form [formGroup]="appointmentForm" (ngSubmit)="save()">
+    <mat-form-field appearance="fill">
+      <mat-label>Time</mat-label>
+      <input matInput formControlName="time" type="time">
+      <mat-error *ngIf="appointmentForm.get('time')?.hasError('required')">
+        Time is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Patient Name</mat-label>
+      <input matInput formControlName="patientName">
+      <mat-error *ngIf="appointmentForm.get('patientName')?.hasError('required')">
+        Patient Name is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Doctor Name</mat-label>
+      <input matInput formControlName="doctorName">
+      <mat-error *ngIf="appointmentForm.get('doctorName')?.hasError('required')">
+        Doctor Name is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Date</mat-label>
+      <input matInput formControlName="date" type="date">
+      <mat-error *ngIf="appointmentForm.get('date')?.hasError('required')">
+        Date is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Status</mat-label>
+      <mat-select formControlName="status">
+        <mat-option value="Scheduled">Scheduled</mat-option>
+        <mat-option value="Completed">Completed</mat-option>
+        <mat-option value="Cancelled">Cancelled</mat-option>
+      </mat-select>
+      <mat-error *ngIf="appointmentForm.get('status')?.hasError('required')">
+        Status is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Notes</mat-label>
+      <textarea matInput formControlName="notes"></textarea>
+    </mat-form-field>
+  </form>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="close()">Cancel</button>
+  <button mat-button color="primary" [disabled]="!appointmentForm.valid" (click)="save()">Save</button>
+</div>

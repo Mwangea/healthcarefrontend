@@ -1,0 +1,38 @@
+<h1 mat-dialog-title>Edit Doctor</h1>
+<div mat-dialog-content>
+  <form [formGroup]="doctorForm" (ngSubmit)="save()">
+    <mat-form-field appearance="fill">
+      <mat-label>Username</mat-label>
+      <input matInput formControlName="username">
+      <mat-error *ngIf="doctorForm.get('username')?.hasError('required')">
+        Username is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" type="email">
+      <mat-error *ngIf="doctorForm.get('email')?.hasError('required')">
+        Email is required
+      </mat-error>
+      <mat-error *ngIf="doctorForm.get('email')?.hasError('email')">
+        Invalid email format
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Specialty</mat-label>
+      <mat-select formControlName="specialty">
+        <mat-option *ngFor="let spec of specialties" [value]="spec">{{ spec }}</mat-option>
+      </mat-select>
+      <mat-error *ngIf="doctorForm.get('specialty')?.hasError('required')">
+        Specialty is required
+      </mat-error>
+    </mat-form-field>
+  </form>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="close()">Cancel</button>
+  <button mat-button color="primary" [disabled]="!doctorForm.valid" (click)="save()">Save</button>
+</div>

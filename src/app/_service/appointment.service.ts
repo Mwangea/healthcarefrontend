@@ -34,4 +34,12 @@ getPatients(): Observable<any[]> {
   return this.http.get<any[]>(`${this.baseUrl}patient`);
 }
 
+deleteAppointment(appointmentId: string): Observable<any> {
+  return this.http.delete<any>(`${this.baseUrl}appointments/${appointmentId}`);
+}
+
+updateAppointment(appointmentId: string, appointmentData: any): Observable<any> {
+  return this.http.put<any>(`${this.baseUrl}appointments/${appointmentId}`, appointmentData);
+}
+
 }

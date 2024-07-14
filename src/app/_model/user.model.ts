@@ -33,6 +33,7 @@ export interface appointment {
 }
 
 export interface doctor{
+  id:string;
   Username: string;
   Email: string;
   Specialty: string
@@ -53,5 +54,13 @@ export interface medicalRecord{
   diagnosis: string;
   treatment: string;
   notes: string;
-  
+}
+
+
+export interface labtest{
+  LabPatientName: string;
+  LabPatAilment : string;
+  LabPatTests: string;
+  LabPatResults: string;
+  LabDateRec: string;
 }
