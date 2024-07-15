@@ -1,23 +1,26 @@
-import { Injectable } from "@angular/core";
-import { environment } from "../../environments/environment";
-import { HttpClient } from "@angular/common/http";
-import { appointment, medicalRecord, medicine } from "../_model/user.model";
-import { Observable } from "rxjs";
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
+import { medicalRecord } from '../_model/user.model';
 
 @Injectable({
-  providedIn: "root"
+  providedIn: 'root'
 })
-
-
 export class medicalService {
+  private baseUrl = environment.apiUrl;
 
-  constructor(private http: HttpClient){}
-  baseUrl = environment.apiUrl;
+  constructor(private http: HttpClient) {}
 
-
-  GetAllMedicalRecords(){
+  GetAllMedicalRecords(): Observable<medicalRecord[]> {
     return this.http.get<medicalRecord[]>(`${this.baseUrl}medicalrecords`);
   }
 
+  deleteMedicalRecord(medicalRecordId: string): Observable<any> {
+    return this.http.delete<any>(`${this.baseUrl}medicalrecords/${medicalRecordId}`);
+  }
 
+  updateMedicalRecord(medicalRecordId: string, data: any): Observable<any> {
+    return this.http.put<any>(`${this.baseUrl}medicalrecords/${medicalRecordId}`, data);
+  }
 }

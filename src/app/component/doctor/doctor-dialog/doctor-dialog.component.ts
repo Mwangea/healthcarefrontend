@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-doctor-dialog',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrl: './doctor-dialog.component.scss'
 })
 export class DoctorDialogComponent {
+
+  
 
 }

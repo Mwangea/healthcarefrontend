@@ -49,6 +49,7 @@ export interface medicine {
 }
 
 export interface medicalRecord{
+  medicalRecordId: string;
   patientUsername: string;
   date: number;
   diagnosis: string;

@@ -46,6 +46,9 @@ import { EditappointmentDialogComponent } from './component/appointments/editapp
 import { EditdoctorDialogComponent } from './component/doctor/editdoctor-dialog/editdoctor-dialog.component';
 import { DoctorDialogComponent } from './component/doctor/doctor-dialog/doctor-dialog.component';
 import { DoctorConfirmationDialogComponent } from './component/doctor/doctor-confirmation-dialog/doctor-confirmation-dialog.component';
+import { MedicalConfirmationDialogComponent } from './component/medical-records/medical-confirmation-dialog/medical-confirmation-dialog.component';
+import { MedicalDialogComponent } from './component/medical-records/medical-dialog/medical-dialog.component';
+import { AddmedicalDialogComponent } from './component/medical-records/addmedical-dialog/addmedical-dialog.component';
 //import { AppointmentDialogComponent } from './appointments/appointment-dialog/appointment-dialog.component';
 //import { AuthInterceptor } from './auth.interceptor';
 //import { AuthInterceptor } from './auth.interceptor';
@@ -81,6 +84,9 @@ import { DoctorConfirmationDialogComponent } from './component/doctor/doctor-con
     EditdoctorDialogComponent,
     DoctorDialogComponent,
     DoctorConfirmationDialogComponent,
+    MedicalConfirmationDialogComponent,
+    MedicalDialogComponent,
+    AddmedicalDialogComponent,
 
 
 
