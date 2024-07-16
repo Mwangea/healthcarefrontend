@@ -23,4 +23,8 @@ export class medicalService {
   updateMedicalRecord(medicalRecordId: string, data: any): Observable<any> {
     return this.http.put<any>(`${this.baseUrl}medicalrecords/${medicalRecordId}`, data);
   }
+
+  addMedicalRecord(medicalData:any): Observable<any> {
+    return this.http.post<any>(`${this.baseUrl}medicalrecords`, medicalData);
+  }
 }

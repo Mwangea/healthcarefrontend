@@ -1,1 +1,53 @@
-<p>addmedical-dialog works!</p>
+<h2 mat-dialog-title>Add Medical Record</h2>
+<form [formGroup]="medicalRecordForm" (ngSubmit)="onSubmit()">
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Patient Username</mat-label>
+    <mat-select formControlName="patientUsername" required>
+      <mat-option *ngFor="let user of patients" [value]="user.username">
+        {{ user.username }}
+      </mat-option>
+    </mat-select>
+    <mat-error *ngIf="medicalRecordForm.get('patientUsername')?.hasError('required')">
+      Patient Username is required
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Date</mat-label>
+    <input matInput formControlName="date" [matDatepicker]="picker" required>
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+    <mat-error *ngIf="medicalRecordForm.get('date')?.hasError('required')">
+      Date is required
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Diagnosis</mat-label>
+    <input matInput formControlName="diagnosis" required>
+    <mat-error *ngIf="medicalRecordForm.get('diagnosis')?.hasError('required')">
+      Diagnosis is required
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Treatment</mat-label>
+    <input matInput formControlName="treatment" required>
+    <mat-error *ngIf="medicalRecordForm.get('treatment')?.hasError('required')">
+      Treatment is required
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Notes</mat-label>
+    <textarea matInput formControlName="notes" required></textarea>
+    <mat-error *ngIf="medicalRecordForm.get('notes')?.hasError('required')">
+      Notes are required
+    </mat-error>
+  </mat-form-field>
+
+  <div mat-dialog-actions>
+    <button mat-button (click)="onCancel()">Cancel</button>
+    <button mat-button color="primary" type="submit">Save</button>
+  </div>
+</form>

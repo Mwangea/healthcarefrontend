@@ -7,6 +7,7 @@ import { medicalService } from '../../_service/medical.service';
 import { MedicalDialogComponent } from './medical-dialog/medical-dialog.component';
 import { MedicalConfirmationDialogComponent } from './medical-confirmation-dialog/medical-confirmation-dialog.component';
 import { medicalRecord } from '../../_model/user.model';
+import { AddmedicalDialogComponent } from './addmedical-dialog/addmedical-dialog.component';
 
 @Component({
   selector: 'app-medical-records',
@@ -77,6 +78,18 @@ export class MedicalRecordsComponent {
     const dialogRef = this.dialog.open(MedicalDialogComponent, {
       width: '500px',
       data: medicalRecord
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        this.loadAllMedicalRecords();
+      }
+    });
+  }
+
+  addMedical(): void{
+    const dialogRef = this.dialog.open(AddmedicalDialogComponent, {
+      width: '500px'
     });
 
     dialogRef.afterClosed().subscribe((result) => {

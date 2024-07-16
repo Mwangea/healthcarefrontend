@@ -17,13 +17,10 @@ export class patientService {
   Getall(){
     return this.http.get<patient[]>(`${this.baseUrl}patient`);
   }
-  
+
   addPatient(_data:patient){
     return this.http.post(`${this.baseUrl}patient`,_data);
   }
-
-
-
 
 }
 
