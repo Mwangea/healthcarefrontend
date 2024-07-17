@@ -1,0 +1,42 @@
+<h2 mat-dialog-title>Edit Medical Record</h2>
+<mat-dialog-content>
+  <form [formGroup]="labtestForm">
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Date</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="LabDateRec">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+      <mat-error *ngIf="labtestForm.get('LabDateRec')?.hasError('required')">
+        Date is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Ailment</mat-label>
+      <input matInput formControlName="LabPatAilment">
+      <mat-error *ngIf="labtestForm.get('LabPatAilment')?.hasError('required')">
+        Ailment is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Tests</mat-label>
+      <input matInput formControlName="LabPatTests">
+      <mat-error *ngIf="labtestForm.get('LabPatTests')?.hasError('required')">
+        Test is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Results</mat-label>
+      <textarea matInput formControlName="LabPatResults"></textarea>
+      <mat-error *ngIf="labtestForm.get('LabPatResults')?.hasError('required')">
+        results are required
+      </mat-error>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="close()">Cancel</button>
+  <button mat-button color="primary" (click)="save()">Save</button>
+</mat-dialog-actions>

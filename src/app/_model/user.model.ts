@@ -59,9 +59,12 @@ export interface medicalRecord{
 
 
 export interface labtest{
+  id: string;
   LabPatientName: string;
   LabPatAilment : string;
   LabPatTests: string;
   LabPatResults: string;
   LabDateRec: string;
 }
+
+

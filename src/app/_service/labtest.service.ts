@@ -17,5 +17,18 @@ export class labtestService {
     return this.http.get<labtest[]>(`${this.baseUrl}labtests`);
   }
 
+  addLabTest(labtestData:any): Observable<any> {
+    return this.http.post<any>(`${this.baseUrl}labtests`, labtestData);
+  }
+
+  updateLabTest(labtestId:string, labtestData:any): Observable<any> {
+    return this.http.put<any>(`${this.baseUrl}labtests/${labtestId}`, labtestData);
+  }
+
+  deleteLabTest(id: string): Observable<any> {
+    return this.http.delete<any>(`${this.baseUrl}labtests/${id}`);
+  }
+
+
 
 }

@@ -11,7 +11,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { MaterialModule } from './material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule, provideHttpClient, withFetch, withInterceptors } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule, provideToastr } from 'ngx-toastr';
@@ -49,6 +49,9 @@ import { DoctorConfirmationDialogComponent } from './component/doctor/doctor-con
 import { MedicalConfirmationDialogComponent } from './component/medical-records/medical-confirmation-dialog/medical-confirmation-dialog.component';
 import { MedicalDialogComponent } from './component/medical-records/medical-dialog/medical-dialog.component';
 import { AddmedicalDialogComponent } from './component/medical-records/addmedical-dialog/addmedical-dialog.component';
+import { AddlabtestDialogComponent } from './component/labtest/addlabtest-dialog/addlabtest-dialog.component';
+import { EditlabtestDialogComponent } from './component/labtest/editlabtest-dialog/editlabtest-dialog.component';
+import { MessagelabtestDialogComponent } from './component/labtest/messagelabtest-dialog/messagelabtest-dialog.component';
 //import { AppointmentDialogComponent } from './appointments/appointment-dialog/appointment-dialog.component';
 //import { AuthInterceptor } from './auth.interceptor';
 //import { AuthInterceptor } from './auth.interceptor';
@@ -87,6 +90,9 @@ import { AddmedicalDialogComponent } from './component/medical-records/addmedica
     MedicalConfirmationDialogComponent,
     MedicalDialogComponent,
     AddmedicalDialogComponent,
+    AddlabtestDialogComponent,
+    EditlabtestDialogComponent,
+    MessagelabtestDialogComponent,
 
 
 
@@ -121,6 +127,7 @@ import { AddmedicalDialogComponent } from './component/medical-records/addmedica
     provideHttpClient(withFetch(), withInterceptors([tokenInterceptor])),
     //provideHttpClient(withInterceptors([tokenInterceptor])),
     provideToastr({closeButton: true}),
+    DatePipe
 
 
 

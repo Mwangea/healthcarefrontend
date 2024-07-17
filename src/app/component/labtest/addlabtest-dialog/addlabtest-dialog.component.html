@@ -1,0 +1,30 @@
+<h2 mat-dialog-title>Add LabTest</h2>
+<div mat-dialog-content>
+  <form [formGroup]="labtestForm" (ngSubmit)="onSubmit()">
+    <mat-form-field>
+      <mat-label>Patient Username</mat-label>
+      <mat-select formControlName="LabPatientName">
+        <mat-option *ngFor="let patient of patients" [value]="patient.username">{{ patient.username }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <textarea matInput placeholder="Ailment" formControlName="LabPatAilment"></textarea>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput [matDatepicker]="picker" placeholder="Date Recorded" formControlName="LabDateRec">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field>
+      <textarea matInput placeholder="Tests" formControlName="LabPatTests"></textarea>
+    </mat-form-field>
+    <mat-form-field>
+      <textarea matInput placeholder="Results" formControlName="LabPatResults"></textarea>
+    </mat-form-field>
+
+
+  </form>
+  <div mat-dialog-actions>
+    <button mat-button (click)="onCancel()">Cancel</button>
+    <button mat-button color="primary"  (click)="onSubmit()">Save</button>
+  </div>
