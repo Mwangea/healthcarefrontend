@@ -8,6 +8,11 @@ import { patientService } from '../../_service/patient.service';
 import { patient } from '../../_model/user.model';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
+import { MessagepatientDialogComponent } from './messagepatient-dialog/messagepatient-dialog.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { EditpatientDialogComponent } from './editpatient-dialog/editpatient-dialog.component';
+//import { EditPatientDialogComponent } from './editpatient-dialog/editpatient-dialog.component';
+//import { EditpatientDialogComponent } from './editpatient-dialog/editpatient-dialog.component';
 
 @Component({
   selector: 'app-patients',
@@ -17,13 +22,13 @@ import { MatPaginator } from '@angular/material/paginator';
 export class PatientsComponent implements OnInit {
   patientList!: patient[];
   displayedColumns: string[]=["username","pat_age","gender","pat_blood_group","pat_phone","pat_type","action"];
-  dataSource: any;
+  dataSource!: MatTableDataSource<patient>;
   //searchTerm: string = '';
   //filterDate: Date = new Date();
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  constructor(private patientService: patientService, public dialog: MatDialog) {}
+  constructor(private patientService: patientService, public dialog: MatDialog, private snackBar: MatSnackBar) {}
 
   ngOnInit(): void {
     this.loadPatients();
@@ -46,16 +51,48 @@ export class PatientsComponent implements OnInit {
     );
   }
 
-  editPatient(id: number): void {
-    // Implement edit functionality if needed
+  editPatient(patient: patient): void {
+    console.log('Editing patient:', patient);
+    const dialogRef = this.dialog.open(EditpatientDialogComponent, {
+      width: '500px',
+      data: { patient: patient }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.loadPatients();
+      }
+    });
   }
 
   viewPatientDetails(id: number): void {
     // Implement view details functionality if needed
   }
 
-  deletePatient(id: number): void {
-    // Implement delete functionality if needed
+  deletepatient(pat_id: string): void {
+    const dialogRef = this.dialog.open(MessagepatientDialogComponent, {
+      width: '350px',
+      data: { message: 'Are you sure you want to delete patient?' }
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        this.patientService.deletePatient(pat_id).subscribe(
+          () => {
+            this.snackBar.open('Deleted successfully', 'Close', {
+              duration: 3000,
+              horizontalPosition: 'right',
+              verticalPosition: 'top'
+            });
+            this.patientList = this.patientList.filter(record => record.pat_id !== pat_id);
+            this.dataSource.data = this.patientList;
+          },
+          (error) => {
+            console.error('Error deleting patient:', error);
+          }
+        );
+      }
+    });
   }
 
   addPatient(): void {

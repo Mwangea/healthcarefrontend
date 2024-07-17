@@ -19,7 +19,7 @@ export interface patient {
   Pat_blood_group: string;
   Pat_phone: string;
   Pat_type: string;
-  Pat_id: number;
+  pat_id: string;
 }
 
 export interface appointment {

@@ -52,6 +52,8 @@ import { AddmedicalDialogComponent } from './component/medical-records/addmedica
 import { AddlabtestDialogComponent } from './component/labtest/addlabtest-dialog/addlabtest-dialog.component';
 import { EditlabtestDialogComponent } from './component/labtest/editlabtest-dialog/editlabtest-dialog.component';
 import { MessagelabtestDialogComponent } from './component/labtest/messagelabtest-dialog/messagelabtest-dialog.component';
+import { MessagepatientDialogComponent } from './component/patients/messagepatient-dialog/messagepatient-dialog.component';
+import { EditpatientDialogComponent } from './component/patients/editpatient-dialog/editpatient-dialog.component';
 //import { AppointmentDialogComponent } from './appointments/appointment-dialog/appointment-dialog.component';
 //import { AuthInterceptor } from './auth.interceptor';
 //import { AuthInterceptor } from './auth.interceptor';
@@ -93,6 +95,8 @@ import { MessagelabtestDialogComponent } from './component/labtest/messagelabtes
     AddlabtestDialogComponent,
     EditlabtestDialogComponent,
     MessagelabtestDialogComponent,
+    MessagepatientDialogComponent,
+    EditpatientDialogComponent,
 
 
 

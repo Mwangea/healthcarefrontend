@@ -22,6 +22,14 @@ export class patientService {
     return this.http.post(`${this.baseUrl}patient`,_data);
   }
 
+  updatePatient(Pat_id:string, patientData:any): Observable<any> {
+    return this.http.put<any>(`${this.baseUrl}patient/${Pat_id}`, patientData);
+  }
+
+  deletePatient(pat_id: string): Observable<any> {
+    return this.http.delete<any>(`${this.baseUrl}patient/${pat_id}`);
+  }
+
 }
 
 
