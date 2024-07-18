@@ -1,1 +1,28 @@
-<p>settings works!</p>
+<div class="container">
+  <h2 class="settings-title">Settings</h2>
+  <form [formGroup]="updateForm" (ngSubmit)="onSubmit()">
+    <mat-form-field class="form-group">
+      <mat-label>Username</mat-label>
+      <input matInput type="text" formControlName="username">
+    </mat-form-field>
+
+    <mat-form-field class="form-group">
+      <mat-label>Email</mat-label>
+      <input matInput type="email" formControlName="email">
+    </mat-form-field>
+
+    <div *ngIf="currentUserRole === 'Doctor'" class="form-group">
+      <mat-form-field>
+        <mat-label>Specialty</mat-label>
+        <mat-select formControlName="specialty">
+          <mat-option *ngFor="let spec of specialties" [value]="spec">{{ spec }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <!-- Add other fields as needed -->
+
+    <button mat-raised-button type="submit" color="primary">Update Profile</button>
+  </form>
+
+  <button mat-raised-button class="mat-warn mt-3" (click)="deleteProfile()">Delete Account</button>
+</div>

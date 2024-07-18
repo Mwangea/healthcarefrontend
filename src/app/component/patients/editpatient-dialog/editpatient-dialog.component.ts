@@ -21,18 +21,18 @@ export class EditpatientDialogComponent {
     private toastr: ToastrService,
     private Service: patientService
   ) {this.patientForm = this.fb.group({
-      Username: [data.patient.Username || '', Validators.required],
-      pat_dob: [data.patient.Pat_dob || '', Validators.required],
-      pat_age: [data.patient.Pat_age || '', Validators.required],
-      pat_number: [data.patient.Pat_number || '', Validators.required],
-      pat_addr: [data.patient.Pat_addr || '', Validators.required],
-      pat_phone: [data.patient.Pat_phone || '', Validators.required],
-      pat_type: [data.patient.Pat_type || '', Validators.required],
-      pat_date_joined: [data.patient.Pat_date_joined || '', Validators.required],
-      pat_ailment: [data.patient.Pat_ailment || '', Validators.required],
-      pat_discharge_status: [data.patient.Pat_discharge_status || '', Validators.required],
-      pat_blood_group: [data.patient.Pat_blood_group || '', Validators.required],
-      Gender: [data.patient.Gender || '', Validators.required]
+    username: [data.patient.Username || '', Validators.required],
+    pat_dob: [data.patient.pat_dob || '', Validators.required],
+    pat_age: [data.patient.pat_age || '', Validators.required],
+    pat_number: [data.patient.pat_number || '', Validators.required],
+    pat_addr: [data.patient.pat_addr || '', Validators.required],
+    pat_phone: [data.patient.pat_phone || '', Validators.required],
+    pat_type: [data.patient.pat_type || '', Validators.required],
+    pat_date_joined: [data.patient.pat_date_joined || '', Validators.required],
+    pat_ailment: [data.patient.pat_ailment || '', Validators.required],
+    pat_discharge_status: [data.patient.pat_discharge_status || '', Validators.required],
+    pat_blood_group: [data.patient.pat_blood_group || '', Validators.required],
+    gender: [data.patient.Gender || '', Validators.required]
   });
 }
 
@@ -43,8 +43,9 @@ ngOnInit(): void {
 save(): void {
   if (this.patientForm.valid) {
     const patientData = this.patientForm.value;
-    if (this.data.patient) {
-      this.Service.updatePatient(this.data.patient.Pat_id, patientData).subscribe(() => {
+    const patientId = this.data.patient.pat_id; // Ensure patient ID is correctly retrieved
+    if (patientId) {
+      this.Service.updatePatient(patientId, patientData).subscribe(() => {
         this.dialogRef.close(true);
         this.toastr.success('Patient updated successfully', 'Success');
       },

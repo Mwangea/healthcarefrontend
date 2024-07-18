@@ -22,7 +22,7 @@ export class patientService {
     return this.http.post(`${this.baseUrl}patient`,_data);
   }
 
-  updatePatient(Pat_id:string, patientData:any): Observable<any> {
+  updatePatient(Pat_id:number, patientData:any): Observable<any> {
     return this.http.put<any>(`${this.baseUrl}patient/${Pat_id}`, patientData);
   }
 

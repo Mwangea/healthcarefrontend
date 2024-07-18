@@ -68,5 +68,13 @@ export class UserService {
     window.location.href = '/login';
   }
 
+  getDoctorProfile(username: string): Observable<any> {
+    return this.http.get(`${this.baseUrl}api/user/doctor/profile/${username}`);
+  }
+
+  getAdminProfile(username: string): Observable<any> {
+    return this.http.get(`${this.baseUrl}api/user/admin/profile/${username}`);
+  }
+
 
 }
