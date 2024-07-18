@@ -18,17 +18,16 @@ export class SettingsService {
     return this.http.put<any>(`${this.baseUrl}user/doctor/profile`, profileData);
   }
 
-  // Delete doctor profile
   deleteDoctorProfile(): Observable<any> {
     return this.http.delete<any>(`${this.baseUrl}user/doctor/profile`);
   }
 
-  // Update admin profile
-  updateAdminProfile(profileData: Admin): Observable<any> {
+
+  updateAdminProfile(profileData: any): Observable<any> {
     return this.http.put<any>(`${this.baseUrl}user/admin/profile`, profileData);
   }
 
-  // Delete admin profile
+
   deleteAdminProfile(): Observable<any> {
     return this.http.delete<any>(`${this.baseUrl}user/admin/profile`);
   }

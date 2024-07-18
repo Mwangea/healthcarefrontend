@@ -56,7 +56,7 @@ export class UserService {
     const token = localStorage.getItem('token');
     if (token) {
       const decodedToken = this.decodeToken(token);
-      return decodedToken.sub; // or the property that holds the username
+      return decodedToken.sub; 
     }
     return '';
   }
@@ -69,11 +69,11 @@ export class UserService {
   }
 
   getDoctorProfile(username: string): Observable<any> {
-    return this.http.get(`${this.baseUrl}api/user/doctor/profile/${username}`);
+    return this.http.get(`${this.baseUrl}user/doctor/profile/${username}`);
   }
 
   getAdminProfile(username: string): Observable<any> {
-    return this.http.get(`${this.baseUrl}api/user/admin/profile/${username}`);
+    return this.http.get(`${this.baseUrl}user/admin/profile/${username}`);
   }
 
 
