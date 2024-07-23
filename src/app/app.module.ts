@@ -54,6 +54,8 @@ import { EditlabtestDialogComponent } from './component/labtest/editlabtest-dial
 import { MessagelabtestDialogComponent } from './component/labtest/messagelabtest-dialog/messagelabtest-dialog.component';
 import { MessagepatientDialogComponent } from './component/patients/messagepatient-dialog/messagepatient-dialog.component';
 import { EditpatientDialogComponent } from './component/patients/editpatient-dialog/editpatient-dialog.component';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+//import { NgxChartsModule } from 'ngx-charts';
 //import { AppointmentDialogComponent } from './appointments/appointment-dialog/appointment-dialog.component';
 //import { AuthInterceptor } from './auth.interceptor';
 //import { AuthInterceptor } from './auth.interceptor';
@@ -119,7 +121,9 @@ import { EditpatientDialogComponent } from './component/patients/editpatient-dia
     HttpClientModule,
     MatTableModule,
     NgxPaginationModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    NgxChartsModule
+
 
 
 

@@ -46,6 +46,7 @@ export interface medicine {
  Stock: number;
  ExpiryDate: number;
  Manufacturer: string;
+ sold: number;
 }
 
 export interface medicalRecord{
