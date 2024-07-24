@@ -75,4 +75,40 @@ export interface Admin{
   email: string;
 }
 
+export interface invoice{
+  invoice_id: number;
+  patientId: number;
+  doctorId: number;
+  date: string;
+  invoiceNumber: string;
+  subtotal: number;
+  tax: number;
+  total: number;
+  paymentMethod: string;
+  paymentDate: string;
+  amountPaid: number;
+  services: Service[];
+  charges: Charge[];
+}
+
+export interface Service{
+  service_id: number;
+  invoice_id: number;
+  description: string;
+  code: string;
+  quantity: number;
+  unitPrice: number;
+  total: number;
+}
+
+export interface Charge{
+  charge_id: number;
+  invoice_id: number;
+  description: string;
+  code: string;
+  quantity: number;
+  unitPrice: number;
+  total: number;
+}
+
 
