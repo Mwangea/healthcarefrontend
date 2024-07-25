@@ -32,4 +32,16 @@ export class invoiceService {
   downloadInvoice(invoiceId: number): Observable<Blob> {
     return this.http.get(`${this.baseUrl}invoice/${invoiceId}/download`, { responseType: 'blob' });
   }
+
+  getDoctors(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.baseUrl}admin/doctors`);
+  }
+
+  GetInvoicesByDoctor(doctorId: string){
+    return this.http.get<invoice[]>(`${this.baseUrl}invoice/doctor/${doctorId}`);
+  }
+
+  getPatients(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.baseUrl}patients`);
+  }
 }

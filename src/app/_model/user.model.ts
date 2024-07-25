@@ -76,9 +76,9 @@ export interface Admin{
 }
 
 export interface invoice{
-  invoice_id: number;
-  patientId: number;
-  doctorId: number;
+  invoice_id: string;
+  patientId: string;
+  doctorId: string;
   date: string;
   invoiceNumber: string;
   subtotal: number;
@@ -92,8 +92,8 @@ export interface invoice{
 }
 
 export interface Service{
-  service_id: number;
-  invoice_id: number;
+  service_id: string;
+  invoice_id: string;
   description: string;
   code: string;
   quantity: number;

@@ -55,6 +55,9 @@ import { MessagelabtestDialogComponent } from './component/labtest/messagelabtes
 import { MessagepatientDialogComponent } from './component/patients/messagepatient-dialog/messagepatient-dialog.component';
 import { EditpatientDialogComponent } from './component/patients/editpatient-dialog/editpatient-dialog.component';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { AddInvoiceDialogComponent } from './component/invoice/add-invoice-dialog/add-invoice-dialog.component';
+import { EditInvoiceDialogComponent } from './component/invoice/edit-invoice-dialog/edit-invoice-dialog.component';
+import { ConfirmationInvoiceDialogComponent } from './component/invoice/confirmation-invoice-dialog/confirmation-invoice-dialog.component';
 //import { NgxChartsModule } from 'ngx-charts';
 //import { AppointmentDialogComponent } from './appointments/appointment-dialog/appointment-dialog.component';
 //import { AuthInterceptor } from './auth.interceptor';
@@ -99,6 +102,9 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
     MessagelabtestDialogComponent,
     MessagepatientDialogComponent,
     EditpatientDialogComponent,
+    AddInvoiceDialogComponent,
+    EditInvoiceDialogComponent,
+    ConfirmationInvoiceDialogComponent,
 
 
 
