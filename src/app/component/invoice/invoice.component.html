@@ -32,8 +32,15 @@
         <ng-container matColumnDef="action">
           <th mat-header-cell *matHeaderCellDef>Action</th>
           <td mat-cell *matCellDef="let element">
-            <button mat-button color="primary" >Edit</button>
-            <button mat-button color="warn" >Delete</button>
+            <button mat-button color="primary"  (click)="editInvoice(element)">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button color="warn" (click)="deleteInvoice(element.id)">
+              <mat-icon>delete</mat-icon>
+            </button>
+            <button mat-button color="primary" (click)="downloadInvoice(element.id)" >
+              <mat-icon>download</mat-icon>
+            </button>
           </td>
         </ng-container>
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

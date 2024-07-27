@@ -21,12 +21,13 @@ export class invoiceService {
     return this.http.post<any>(`${this.baseUrl}invoice`, invoiceData);
   }
 
-  updateInvoice(invoice_id:number, invoiceData:any): Observable<any> {
-    return this.http.put<any>(`${this.baseUrl}invoice/${invoice_id}`, invoiceData);
+  updateInvoice(id:string, invoiceData:any): Observable<any> {
+    return this.http.put<any>(`${this.baseUrl}invoice/${id}`, invoiceData);
   }
 
-  deleteInvoice(invoice_id: number): Observable<any> {
-    return this.http.delete<any>(`${this.baseUrl}invoice/${invoice_id}`);
+  deleteInvoice(id: string): Observable<any> {
+    console.log('Calling deleteInvoice with invoice_id:', id); // Debugging
+    return this.http.delete<any>(`${this.baseUrl}invoice/${id}`);
   }
 
   downloadInvoice(invoiceId: number): Observable<Blob> {
