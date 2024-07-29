@@ -131,7 +131,7 @@ export class InvoiceComponent implements OnInit, AfterViewInit {
   editInvoice(invoice: invoice): void {
     const dialogRef = this.dialog.open(EditInvoiceDialogComponent, {
       width: '500px',
-      data: invoice
+      data: {invoice}
     });
 
     dialogRef.afterClosed().subscribe((result) => {
