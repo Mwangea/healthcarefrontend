@@ -58,6 +58,7 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { AddInvoiceDialogComponent } from './component/invoice/add-invoice-dialog/add-invoice-dialog.component';
 import { EditInvoiceDialogComponent } from './component/invoice/edit-invoice-dialog/edit-invoice-dialog.component';
 import { ConfirmationInvoiceDialogComponent } from './component/invoice/confirmation-invoice-dialog/confirmation-invoice-dialog.component';
+import { MatListModule } from '@angular/material/list';
 //import { NgxChartsModule } from 'ngx-charts';
 //import { AppointmentDialogComponent } from './appointments/appointment-dialog/appointment-dialog.component';
 //import { AuthInterceptor } from './auth.interceptor';
@@ -128,7 +129,8 @@ import { ConfirmationInvoiceDialogComponent } from './component/invoice/confirma
     MatTableModule,
     NgxPaginationModule,
     MatSnackBarModule,
-    NgxChartsModule
+    NgxChartsModule,
+    MatListModule
 
 
 

@@ -1,138 +1,185 @@
-<h1 mat-dialog-title>Edit Invoice</h1>
-<mat-dialog-content>
-  <form [formGroup]="invoiceForm" (ngSubmit)="save()">
-    <mat-form-field appearance="fill">
-      <mat-label>Patient Username</mat-label>
-      <input matInput formControlName="patientUsername">
-      <mat-error *ngIf="invoiceForm.get('patientUsername')?.hasError('required')">Patient Username is required</mat-error>
-    </mat-form-field>
+<form [formGroup]="invoiceForm" (ngSubmit)="onSave()">
+  <mat-grid-list cols="2" rowHeight="4:1" gutterSize="8px">
+    <mat-grid-tile colspan="2">
+      <mat-form-field>
+        <mat-label>Patient Username</mat-label>
+        <mat-select formControlName="patientUsername">
+          <mat-option *ngFor="let patient of patients" [value]="patient.username">
+            {{ patient.username }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </mat-grid-tile>
 
-    <mat-form-field appearance="fill">
-      <mat-label>Doctor Username</mat-label>
-      <input matInput formControlName="doctorUsername" []="currentUserRole !== 'Admin'">
-      <mat-error *ngIf="invoiceForm.get('doctorUsername')?.hasError('required')">Doctor Username is required</mat-error>
-    </mat-form-field>
+    <mat-grid-tile colspan="2">
+      <mat-form-field>
+        <mat-label>Doctor Username</mat-label>
+        <mat-select formControlName="doctorUsername">
+          <mat-option *ngFor="let doctor of doctors" [value]="doctor.username">
+            {{ doctor.username }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </mat-grid-tile>
 
-    <mat-form-field appearance="fill">
-      <mat-label>Date</mat-label>
-      <input matInput formControlName="date" [matDatepicker]="picker1">
-      <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
-      <mat-datepicker #picker1></mat-datepicker>
-      <mat-error *ngIf="invoiceForm.get('date')?.hasError('required')">Date is required</mat-error>
-    </mat-form-field>
+    <mat-grid-tile>
+      <mat-form-field>
+        <mat-label>Date</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="date" placeholder="Choose a date">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </mat-grid-tile>
 
-    <div formArrayName="services" class="form-group">
-      <h3>Services</h3>
-      <div *ngFor="let service of services.controls; let i = index" [formGroupName]="i">
-        <mat-form-field appearance="fill">
-          <mat-label>Description</mat-label>
-          <input matInput formControlName="description">
-          <mat-error *ngIf="service.get('description')?.hasError('required')">Description is required</mat-error>
-        </mat-form-field>
+    <mat-grid-tile>
+      <mat-form-field>
+        <mat-label>Payment Method</mat-label>
+        <input matInput formControlName="paymentMethod">
+      </mat-form-field>
+    </mat-grid-tile>
 
-        <mat-form-field appearance="fill">
-          <mat-label>Code</mat-label>
-          <input matInput formControlName="code">
-          <mat-error *ngIf="service.get('code')?.hasError('required')">Code is required</mat-error>
-        </mat-form-field>
+    <mat-grid-tile>
+      <mat-form-field>
+        <mat-label>Payment Date</mat-label>
+        <input matInput [matDatepicker]="paymentDatePicker" formControlName="paymentDate" placeholder="Choose a date">
+        <mat-datepicker-toggle matSuffix [for]="paymentDatePicker"></mat-datepicker-toggle>
+        <mat-datepicker #paymentDatePicker></mat-datepicker>
+      </mat-form-field>
+    </mat-grid-tile>
 
-        <mat-form-field appearance="fill">
-          <mat-label>Quantity</mat-label>
-          <input matInput type="number" formControlName="quantity" (input)="calculateTotals()">
-          <mat-error *ngIf="service.get('quantity')?.hasError('required')">Quantity is required</mat-error>
-        </mat-form-field>
+    <mat-grid-tile>
+      <mat-form-field>
+        <mat-label>Amount Paid</mat-label>
+        <input matInput type="number" formControlName="amountPaid">
+      </mat-form-field>
+    </mat-grid-tile>
 
-        <mat-form-field appearance="fill">
-          <mat-label>Unit Price</mat-label>
-          <input matInput type="number" formControlName="unitPrice" (input)="calculateTotals()">
-          <mat-error *ngIf="service.get('unitPrice')?.hasError('required')">Unit Price is required</mat-error>
-        </mat-form-field>
+    <!-- Services -->
+    <mat-grid-tile colspan="2">
+      <div formArrayName="services">
+        <div *ngFor="let service of services.controls; let i = index" [formGroupName]="i">
+          <mat-grid-list cols="4" rowHeight="4:1" gutterSize="8px">
+            <mat-grid-tile>
+              <mat-form-field>
+                <mat-label>Description</mat-label>
+                <input matInput formControlName="description">
+              </mat-form-field>
+            </mat-grid-tile>
 
-        <mat-form-field appearance="fill">
-          <mat-label>Total</mat-label>
-          <input matInput formControlName="total" >
-        </mat-form-field>
+            <mat-grid-tile>
+              <mat-form-field>
+                <mat-label>Code</mat-label>
+                <input matInput formControlName="code">
+              </mat-form-field>
+            </mat-grid-tile>
 
-        <button mat-button type="button" (click)="removeService(i)">Remove Service</button>
+            <mat-grid-tile>
+              <mat-form-field>
+                <mat-label>Quantity</mat-label>
+                <input matInput type="number" formControlName="quantity">
+              </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+              <mat-form-field>
+                <mat-label>Unit Price</mat-label>
+                <input matInput type="number" formControlName="unitPrice">
+              </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile colspan="2">
+              <mat-form-field>
+                <mat-label>Total</mat-label>
+                <input matInput type="number" formControlName="total">
+              </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+              <button mat-button (click)="removeService(i)">Remove Service</button>
+            </mat-grid-tile>
+          </mat-grid-list>
+        </div>
+        <button mat-button (click)="addService()">Add Service</button>
       </div>
-      <button mat-button type="button" (click)="addService()">Add Service</button>
-    </div>
+    </mat-grid-tile>
 
-    <div formArrayName="charges" class="form-group">
-      <h3>Charges</h3>
-      <div *ngFor="let charge of charges.controls; let i = index" [formGroupName]="i">
-        <mat-form-field appearance="fill">
-          <mat-label>Description</mat-label>
-          <input matInput formControlName="description">
-          <mat-error *ngIf="charge.get('description')?.hasError('required')">Description is required</mat-error>
-        </mat-form-field>
+    <!-- Charges -->
+    <mat-grid-tile colspan="2">
+      <div formArrayName="charges">
+        <div *ngFor="let charge of charges.controls; let i = index" [formGroupName]="i">
+          <mat-grid-list cols="4" rowHeight="4:1" gutterSize="8px">
+            <mat-grid-tile>
+              <mat-form-field>
+                <mat-label>Description</mat-label>
+                <input matInput formControlName="description">
+            </mat-form-field>
+          </mat-grid-tile>
 
-        <mat-form-field appearance="fill">
-          <mat-label>Code</mat-label>
-          <input matInput formControlName="code">
-          <mat-error *ngIf="charge.get('code')?.hasError('required')">Code is required</mat-error>
-        </mat-form-field>
+            <mat-grid-tile>
+              <mat-form-field>
+                <mat-label>Code</mat-label>
+                <input matInput formControlName="code">
 
-        <mat-form-field appearance="fill">
-          <mat-label>Quantity</mat-label>
-          <input matInput type="number" formControlName="quantity" (input)="calculateTotals()">
-          <mat-error *ngIf="charge.get('quantity')?.hasError('required')">Quantity is required</mat-error>
-        </mat-form-field>
+            </mat-form-field>
+            </mat-grid-tile>
 
-        <mat-form-field appearance="fill">
-          <mat-label>Unit Price</mat-label>
-          <input matInput type="number" formControlName="unitPrice" (input)="calculateTotals()">
-          <mat-error *ngIf="charge.get('unitPrice')?.hasError('required')">Unit Price is required</mat-error>
-        </mat-form-field>
+            <mat-grid-tile>
+              <mat-form-field>
+                <mat-label>Quantity</mat-label>
+                <input matInput type="number" formControlName="quantity">
 
-        <mat-form-field appearance="fill">
-          <mat-label>Total</mat-label>
-          <input matInput formControlName="total" >
-        </mat-form-field>
+            </mat-form-field>
+            </mat-grid-tile>
 
-        <button mat-button type="button" (click)="removeCharge(i)">Remove Charge</button>
+            <mat-grid-tile>
+              <mat-form-field>
+                <mat-label>Unit Price</mat-label>
+                <input matInput type="number" formControlName="unitPrice">
+
+            </mat-form-field>
+          </mat-grid-tile>
+
+            <mat-grid-tile colspan="2">
+              <mat-form-field>
+                <mat-label>Total</mat-label>
+                <input matInput type="number" formControlName="total">
+
+            </mat-form-field>
+          </mat-grid-tile>
+
+            <mat-grid-tile>
+              <button mat-button (click)="removeCharge(i)">Remove Charge</button>
+            </mat-grid-tile>
+          </mat-grid-list>
+        </div>
+        <button mat-button (click)="addCharge()">Add Charge</button>
       </div>
-      <button mat-button type="button" (click)="addCharge()">Add Charge</button>
-    </div>
+    </mat-grid-tile>
 
-    <mat-form-field appearance="fill">
-      <mat-label>Payment Method</mat-label>
-      <input matInput formControlName="paymentMethod">
-      <mat-error *ngIf="invoiceForm.get('paymentMethod')?.hasError('required')">Payment Method is required</mat-error>
-    </mat-form-field>
+    <mat-grid-tile>
+      <mat-form-field>
+        <mat-label>Subtotal</mat-label>
+        <input matInput type="number" formControlName="subtotal">
+      </mat-form-field>
+    </mat-grid-tile>
 
-    <mat-form-field appearance="fill">
-      <mat-label>Payment Date</mat-label>
-      <input matInput formControlName="paymentDate" [matDatepicker]="picker2">
-      <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
-      <mat-datepicker #picker2></mat-datepicker>
-      <mat-error *ngIf="invoiceForm.get('paymentDate')?.hasError('required')">Payment Date is required</mat-error>
-    </mat-form-field>
+    <mat-grid-tile>
+      <mat-form-field>
+        <mat-label>Tax</mat-label>
+        <input matInput type="number" formControlName="tax">
+      </mat-form-field>
+    </mat-grid-tile>
 
-    <mat-form-field appearance="fill">
-      <mat-label>Amount Paid</mat-label>
-      <input matInput formControlName="amountPaid" type="number">
-      <mat-error *ngIf="invoiceForm.get('amountPaid')?.hasError('required')">Amount Paid is required</mat-error>
-    </mat-form-field>
+    <mat-grid-tile>
+      <mat-form-field>
+        <mat-label>Total</mat-label>
+        <input matInput type="number" formControlName="total">
+      </mat-form-field>
+    </mat-grid-tile>
 
-    <mat-form-field appearance="fill">
-      <mat-label>Subtotal</mat-label>
-      <input matInput formControlName="subtotal" >
-    </mat-form-field>
-
-    <mat-form-field appearance="fill">
-      <mat-label>Tax</mat-label>
-      <input matInput formControlName="tax" >
-    </mat-form-field>
-
-    <mat-form-field appearance="fill">
-      <mat-label>Total</mat-label>
-      <input matInput formControlName="total" >
-    </mat-form-field>
-
-    <mat-dialog-actions>
-      <button mat-button type="submit" []="!invoiceForm.valid">Save</button>
-      <button mat-button type="button" (click)="close()">Cancel</button>
-    </mat-dialog-actions>
-  </form>
-</mat-dialog-content>
+    <mat-grid-tile colspan="2">
+      <button mat-button type="submit">Update</button>
+      <button mat-button type="button" (click)="onCancel()">Cancel</button>
+    </mat-grid-tile>
+  </mat-grid-list>
+</form>

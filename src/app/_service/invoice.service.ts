@@ -25,6 +25,10 @@ export class invoiceService {
     return this.http.put<any>(`${this.baseUrl}invoice/${id}`, invoiceData);
   }
 
+  getInvoiceById(id:string): Observable<any> {
+    return this.http.get<invoice>(`${this.baseUrl}invoice/${id}`);
+  }
+
   deleteInvoice(id: string): Observable<any> {
     console.log('Calling deleteInvoice with invoice_id:', id); // Debugging
     return this.http.delete<any>(`${this.baseUrl}invoice/${id}`);
