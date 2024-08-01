@@ -1,0 +1,36 @@
+<header class="header flex items-center" #headRef>
+  <div class="container">
+    <div class="flex items-center justify-between">
+      <!-- Logo -->
+      <div>
+        <img src="assets/images/logo.png" alt="logo" />
+      </div>
+      <!-- Menu -->
+      <div class="navigation" #menuRef (click)="toggleMenu()">
+        <ul class="menu flex items-center gap-[2.7rem]">
+          <li *ngFor="let link of navLinks">
+           <>
+          </li>
+        </ul>
+      </div>
+      <!-- Navigation Right -->
+      <div class="flex items-center gap-[2.7rem]">
+        <div class="hidden">
+          <a routerLink="/">
+            <figure class="w-[35px] h-[35px] rounded-full cursor-pointer">
+              <img src="assets/images/avatar-icon.png" class="w-full rounded-full" alt="" />
+            </figure>
+          </a>
+        </div>
+        <a routerLink="/login">
+          <button class="bg-primaryColor py-2 px-6 text-white font-[600] h-[44px] flex items-center justify-center rounded-[50px]">
+            Login
+          </button>
+        </a>
+        <span class="md:hidden" (click)="toggleMenu()">
+          <i class="bi bi-menu w-6 h-6 cursor-pointer"></i>
+        </span>
+      </div>
+    </div>
+  </div>
+</header>

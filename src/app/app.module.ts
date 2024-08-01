@@ -1,3 +1,4 @@
+//import { PatientMedicalRecordComponent } from './patient/patient/patient-medical-record/patient-medical-record.component';
 import { library } from './../../node_modules/@fortawesome/fontawesome-svg-core/index.d';
 import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
@@ -59,6 +60,17 @@ import { AddInvoiceDialogComponent } from './component/invoice/add-invoice-dialo
 import { EditInvoiceDialogComponent } from './component/invoice/edit-invoice-dialog/edit-invoice-dialog.component';
 import { ConfirmationInvoiceDialogComponent } from './component/invoice/confirmation-invoice-dialog/confirmation-invoice-dialog.component';
 import { MatListModule } from '@angular/material/list';
+import { PatientLayoutComponent } from './patient-layout/patient-layout.component';
+import { PatientMedicineInventoryComponent } from './patient/patient-medicine-inventory/patient-medicine-inventory.component';
+import { PatientMedicalRecordComponent } from './patient/patient-medical-record/patient-medical-recor.component';
+import { PatientComponent } from './patient/patient/patient.component';
+import { ServicesComponent } from './patient/services/services.component';
+import { ContactComponent } from './patient/contact/contact.component';
+import { FindDrComponent } from './patient/find-dr/find-dr.component';
+//import { PatientMedicineInventoryComponent } from './patient/patient/patient-medicine-inventory/patient-medicine-inventory.component';
+//import { PatientMedicalRecordComponent } from './patient/patient-medical-record/patient-medical-record.component';
+//import { PatientComponent } from './patient/patient/patient.component';
+
 //import { NgxChartsModule } from 'ngx-charts';
 //import { AppointmentDialogComponent } from './appointments/appointment-dialog/appointment-dialog.component';
 //import { AuthInterceptor } from './auth.interceptor';
@@ -106,6 +118,17 @@ import { MatListModule } from '@angular/material/list';
     AddInvoiceDialogComponent,
     EditInvoiceDialogComponent,
     ConfirmationInvoiceDialogComponent,
+    PatientLayoutComponent,
+    PatientMedicineInventoryComponent,
+    PatientMedicalRecordComponent,
+    PatientComponent,
+    HeaderComponent,
+    ServicesComponent,
+    ContactComponent,
+    FindDrComponent
+
+
+
 
 
 
