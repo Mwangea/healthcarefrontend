@@ -1,6 +1,6 @@
 .hero__section {
   padding-top: 60px;
-  height: 800px;
+ // height: 800px;
 }
 
 .pt-60 {
@@ -18,8 +18,15 @@
   padding: 0 15px;
 }
 
-.flex {
+.hero-images{
   display: flex;
+  gap: 20px;
+}
+.heading {
+  font-size: 44px;
+  line-height: 54px;
+  font-weight: 700;
+//  color: var(--headingColor); /* Replace with actual heading color value */
 }
 
 .flex-col {
@@ -527,4 +534,15 @@
 
 .lg\:gap-0 {
   gap: 0;
+}
+
+.reduced-size {
+  width: 200px; /* Adjust the width as needed */
+  height: auto; /* Keeps the aspect ratio */
+}
+
+.reduce-size{
+  width: 200px;
+  height: 135px;
+  //top: 1%;
 }

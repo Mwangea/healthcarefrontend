@@ -1,5 +1,5 @@
 <!-- hero section -->
-<section class="hero__section pt-60 2xl:h-800">
+<section class="hero__section">
   <div class="container">
     <div class="flex flex-col lg:flex-row gap-90 items-center justify-between">
       <!-- hero content -->
@@ -12,7 +12,10 @@
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
           </p>
-          <button class="btn">Request an Appointment</button>
+          <a routerLink="/patient/appointment">
+            <button class="btn">Request an Appointment</button>
+          </a>
+
         </div>
         <!-- hero counter -->
         <div class="mt-30 lg:mt-70 flex flex-col lg:flex-row lg:items-center gap-5 lg:gap-30">
@@ -34,7 +37,7 @@
         </div>
       </div>
       <!-- hero images -->
-      <div class="flex gap-30 justify-end">
+      <div class="hero-images flex gap-30 justify-end">
         <div>
           <img class="w-300" src="assets/images/hero-img01.png" alt="" />
         </div>
@@ -52,7 +55,7 @@
   <div class="container">
     <div class="lg:w-470 mx-auto">
       <h2 class="heading text-center">
-        Providing the best medical Services
+        Providing the best<br> medical Services
       </h2>
       <p class="text__para text-center">World-class care for everyone. Our health System offers unmatched, expert health care.</p>
     </div>
@@ -101,6 +104,38 @@
             World-class care for everyone. Our health System offers unmatched, expert health care. From the lab Clinic.
           </p>
           <a routerLink='/doctors' class='w-44 h-44 rounded-full border border-solid border-181A1E mt-30 mx-auto flex items-center justify-center group hover:bg-primaryColor hover:border-none'>
+            <i class="group-hover:text-white w-6 h-5">&#x2192;</i>
+          </a>
+        </div>
+      </div>
+      <div class="py-30 px-5">
+        <div class="flex items-center justify-center">
+          <img src="assets/images/medicine.jpg" alt="" class="reduced-size" />
+        </div>
+        <div class="mt-30">
+          <h2 class="text-26 leading-9 text-headingColor font-700 text-center">
+            Medicine Inventory
+          </h2>
+          <p class="text-16 leading-7 text-textColor font-400 mt-4 text-center">
+            World-class care for everyone. Our health System offers unmatched, expert health care. From the lab Clinic.
+          </p>
+          <a routerLink='/patient/medicine-inventory' class='w-44 h-44 rounded-full border border-solid border-181A1E mt-30 mx-auto flex items-center justify-center group hover:bg-primaryColor hover:border-none'>
+            <i class="group-hover:text-white w-6 h-5">&#x2192;</i>
+          </a>
+        </div>
+      </div>
+      <div class="py-30 px-5">
+        <div class="flex items-center justify-center">
+          <img src="assets/images/records.jpg" alt="" class="reduce-size" />
+        </div>
+        <div class="mt-30">
+          <h2 class="text-26 leading-9 text-headingColor font-700 text-center">
+            Medical Records
+          </h2>
+          <p class="text-16 leading-7 text-textColor font-400 mt-4 text-center">
+            World-class care for everyone. Our health System offers unmatched, expert health care. From the lab Clinic.
+          </p>
+          <a routerLink='/patient/medicine-inventory' class='w-44 h-44 rounded-full border border-solid border-181A1E mt-30 mx-auto flex items-center justify-center group hover:bg-primaryColor hover:border-none'>
             <i class="group-hover:text-white w-6 h-5">&#x2192;</i>
           </a>
         </div>

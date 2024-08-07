@@ -3,7 +3,7 @@
   align-items: center;
   padding: 1rem;
   background-color: white;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  //box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   //height: 60px;
 }
 
@@ -47,16 +47,16 @@
   font-weight: bold;
 }
 
-.login-button {
-  background-color: #3182ce;
+.login {
+  background-color: #1d72b8;
   color: white;
-  padding: 0.5rem 1rem;
+  padding: 0.1px 20px;
   border: none;
-  border-radius: 0.25rem;
+  border-radius: 7px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  line-height: 3;
 }
 
-.login-button:hover {
+.login:hover {
   background-color: #2b6cb0;
 }
