@@ -20,6 +20,7 @@ import { PatientMedicalRecordComponent } from './patient/patient-medical-record/
 import { ServicesComponent } from './patient/services/services.component';
 import { ContactComponent } from './patient/contact/contact.component';
 import { FindDrComponent } from './patient/find-dr/find-dr.component';
+import { PatientLayoutComponent } from './patient-layout/patient-layout.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -41,9 +42,10 @@ const routes: Routes = [
       { path: 'settings', component: SettingsComponent },
     ]
   },
-  { path: 'patient', component: PatientComponent,
+  { path: 'patient',
+    component: PatientLayoutComponent,
     children: [
-      { path: '', component: PatientComponent },
+      { path: 'home', component: PatientComponent },
       { path:'medicine-inventory', component: PatientMedicineInventoryComponent },
       { path:'medical-records', component: PatientMedicalRecordComponent },
       { path:'services', component: ServicesComponent},

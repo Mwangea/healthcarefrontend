@@ -26,11 +26,13 @@
         "medicalrecords",
         "Messagelabtest",
         "Messagepatient",
+        "Patientheader",
         "prerender",
         "proceedlogin",
         "proceedregister",
         "regform",
         "sidenav",
+        "tailwindcss",
         "toastr"
     ]
 }

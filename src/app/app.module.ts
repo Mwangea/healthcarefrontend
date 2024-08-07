@@ -67,6 +67,7 @@ import { PatientComponent } from './patient/patient/patient.component';
 import { ServicesComponent } from './patient/services/services.component';
 import { ContactComponent } from './patient/contact/contact.component';
 import { FindDrComponent } from './patient/find-dr/find-dr.component';
+import { PatientheaderComponent } from './patient/patientheader/patientheader.component';
 //import { PatientMedicineInventoryComponent } from './patient/patient/patient-medicine-inventory/patient-medicine-inventory.component';
 //import { PatientMedicalRecordComponent } from './patient/patient-medical-record/patient-medical-record.component';
 //import { PatientComponent } from './patient/patient/patient.component';
@@ -125,7 +126,8 @@ import { FindDrComponent } from './patient/find-dr/find-dr.component';
     HeaderComponent,
     ServicesComponent,
     ContactComponent,
-    FindDrComponent
+    FindDrComponent,
+    PatientheaderComponent
 
 
 
