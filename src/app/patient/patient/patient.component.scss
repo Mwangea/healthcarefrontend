@@ -546,3 +546,260 @@
   height: 135px;
   //top: 1%;
 }
+
+.round-button {
+  width: 50px; /* Tailwind's w-44 */
+  height: 50px; /* Tailwind's h-44 */
+  border-radius: 50%; /* Makes the shape round */
+  border: 2px solid #181A1E; /* Border color */
+  margin-top: 40px; /* Tailwind's mt-30 */
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative; /* For positioning the arrow */
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.round-button:hover {
+  background-color: #1d72b8; /* Replace with your primary color */
+  border: none;
+}
+
+.arrow {
+  width: 24px; /* Tailwind's w-6 */
+  height: 20px; /* Tailwind's h-5 */
+  position: absolute;
+  transform: rotate(-45deg); /* Rotate the arrow to cut across */
+  color: black;
+  transition: color 0.3s ease;
+}
+.arrow:hover{
+  color: white;
+}
+
+.relative .absolute {
+  position: absolute;
+  top: 55%;
+  left: -130px;
+}
+
+.services-section {
+  text-align: center;
+  padding: 40px;
+  font-family: Arial, sans-serif;
+}
+
+.services-section h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.services-section p {
+  color: #666;
+  margin-bottom: 40px;
+}
+
+.services-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.service-card {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 20px;
+  width: 300px;
+  text-align: left;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.service-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 10px;
+}
+
+.service-card p {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.service-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.arrow-button {
+  background: none;
+  border: 2px solid #000;
+  border-radius: 50%;
+  font-size: 1.25rem;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.arrow-button:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+.service-number {
+  font-size: 1.25rem;
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.service-number.blue {
+  background-color: #aed581;
+}
+
+.service-number.purple {
+  background-color: #ce93d8;
+}
+
+.service-number.green {
+  background-color: #4db6ac;
+}
+
+.service-number.yellow {
+  background-color: #ffcc80;
+}
+
+.service-number.cyan {
+  background-color: #80deea;
+}
+
+.service-number.orange {
+  background-color: #ffab91;
+}
+
+.appointment-card {
+  width: 80px; /* Reduced width */
+  background-color: white;
+  height: 35%; /* Reduced height */
+  position: absolute;
+  bottom: 40px; /* Adjusted position */
+  left: -100%; /* Adjusted position */
+  z-index: 20;
+  padding: 8px 8px 12px;
+  border-radius: 10px;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.date-time {
+  display: flex;
+  align-items: center;
+  gap: 16px; /* Adjusted gap */
+}
+
+.date, .time {
+  font-size: 9px;
+  line-height: 9px;
+  color: #333;
+}
+
+.date {
+  font-weight: 600;
+}
+
+.time {
+  font-weight: 400;
+}
+
+.video-icon {
+  width: 20px; /* Reduced size */
+  height: 20px; /* Reduced size */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #FFD700;
+  border-radius: 5px;
+  padding: 4px 16px; /* Adjusted padding */
+}
+
+.appointment-type {
+  width: 50px; /* Reduced width */
+  background-color: #CCF0F3;
+  padding: 4px 8px;
+  font-size: 7px; /* Reduced font size */
+  line-height: 7px; /* Adjusted line-height */
+  color: #5D5FEF;
+  font-weight: 500;
+  margin-top: 8px;
+  border-radius: 9999px;
+}
+
+.doctor-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 0;
+}
+
+.doctor-name {
+  font-size: 9px; /* Reduced font size */
+  line-height: 12px; /* Adjusted line-height */
+  font-weight: 700;
+  color: #333; /* Assuming this is the heading color */
+}
+
+@media (min-width: 768px) {
+  .appointment-card {
+    bottom: 60px; /* Adjusted position */
+    left: 10px; /* Adjusted position */
+  }
+}
+
+@media (min-width: 1024px) {
+  .appointment-card {
+    width: 200px; /* Reduced width */
+    padding: 12px 12px 80px; /* Adjusted padding */
+  }
+
+  .date-time {
+    gap: 10px; /* Adjusted gap */
+  }
+
+  .date, .time {
+    font-size: 12px; /* Reduced font size */
+    line-height: 18px; /* Adjusted line-height */
+  }
+
+  .video-icon {
+    width: 25px; /* Adjusted size */
+    height: 25px; /* Adjusted size */
+    padding: 8px 24px; /* Adjusted padding */
+  }
+
+  .appointment-type {
+    width: 80px; /* Reduced width */
+    padding: 8px 16px; /* Adjusted padding */
+    font-size: 10px; /* Reduced font size */
+    line-height: 14px; /* Adjusted line-height */
+    margin-top: 12px; /* Adjusted margin */
+  }
+
+  .doctor-info {
+    gap: 30px; /* Adjusted gap */
+    margin-top: 40px; /* Adjusted margin */
+  }
+
+  .doctor-name {
+    font-size: 14px; /* Reduced font size */
+    line-height: 20px; /* Adjusted line-height */
+  }
+}

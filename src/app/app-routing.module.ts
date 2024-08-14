@@ -22,6 +22,7 @@ import { ContactComponent } from './patient/contact/contact.component';
 import { FindDrComponent } from './patient/find-dr/find-dr.component';
 import { PatientLayoutComponent } from './patient-layout/patient-layout.component';
 import { PatientAppointmentComponent } from './patient/patient-appointment/patient-appointment.component';
+import { AboutComponent } from './patient/about/about.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -52,7 +53,8 @@ const routes: Routes = [
       { path:'services', component: ServicesComponent},
       { path:'contact', component: ContactComponent},
       { path: 'doctor', component: FindDrComponent},
-      { path:'appointment', component: PatientAppointmentComponent}
+      { path:'appointment', component: PatientAppointmentComponent},
+      { path:'about', component: AboutComponent}
     ]
    },
 ];

@@ -71,9 +71,12 @@
           <p class="text-16 leading-7 text-textColor font-400 mt-4 text-center">
             World-class care for everyone. Our health System offers unmatched, expert health care. From the lab Clinic.
           </p>
-          <a routerLink='/doctors' class='w-44 h-44 rounded-full border border-solid border-181A1E mt-30 mx-auto flex items-center justify-center group hover:bg-primaryColor hover:border-none'>
-            <i class="group-hover:text-white w-6 h-5">&#x2192;</i>
-          </a>
+          <a
+  routerLink="/patient/doctor"
+  class="round-button"
+>
+  <i class="arrow">&#x2192;</i>
+</a>
         </div>
       </div>
       <div class="py-30 px-5">
@@ -87,9 +90,12 @@
           <p class="text-16 leading-7 text-textColor font-400 mt-4 text-center">
             World-class care for everyone. Our health System offers unmatched, expert health care. From the lab Clinic.
           </p>
-          <a routerLink='/doctors' class='w-44 h-44 rounded-full border border-solid border-181A1E mt-30 mx-auto flex items-center justify-center group hover:bg-primaryColor hover:border-none'>
-            <i class="group-hover:text-white w-6 h-5">&#x2192;</i>
-          </a>
+          <a
+  routerLink="/patient/appointment"
+  class="round-button"
+>
+  <i class="arrow">&#x2192;</i>
+</a>
         </div>
       </div>
       <div class="py-30 px-5">
@@ -103,9 +109,12 @@
           <p class="text-16 leading-7 text-textColor font-400 mt-4 text-center">
             World-class care for everyone. Our health System offers unmatched, expert health care. From the lab Clinic.
           </p>
-          <a routerLink='/doctors' class='w-44 h-44 rounded-full border border-solid border-181A1E mt-30 mx-auto flex items-center justify-center group hover:bg-primaryColor hover:border-none'>
-            <i class="group-hover:text-white w-6 h-5">&#x2192;</i>
-          </a>
+          <a
+  routerLink="/patient/appointment"
+  class="round-button"
+>
+  <i class="arrow">&#x2192;</i>
+</a>
         </div>
       </div>
       <div class="py-30 px-5">
@@ -119,9 +128,12 @@
           <p class="text-16 leading-7 text-textColor font-400 mt-4 text-center">
             World-class care for everyone. Our health System offers unmatched, expert health care. From the lab Clinic.
           </p>
-          <a routerLink='/patient/medicine-inventory' class='w-44 h-44 rounded-full border border-solid border-181A1E mt-30 mx-auto flex items-center justify-center group hover:bg-primaryColor hover:border-none'>
-            <i class="group-hover:text-white w-6 h-5">&#x2192;</i>
-          </a>
+          <a
+  routerLink="/patient/medicine-inventory"
+  class="round-button"
+>
+<i class="arrow">&#x2192;</i>
+</a>
         </div>
       </div>
       <div class="py-30 px-5">
@@ -135,15 +147,68 @@
           <p class="text-16 leading-7 text-textColor font-400 mt-4 text-center">
             World-class care for everyone. Our health System offers unmatched, expert health care. From the lab Clinic.
           </p>
-          <a routerLink='/patient/medicine-inventory' class='w-44 h-44 rounded-full border border-solid border-181A1E mt-30 mx-auto flex items-center justify-center group hover:bg-primaryColor hover:border-none'>
-            <i class="group-hover:text-white w-6 h-5">&#x2192;</i>
-          </a>
+          <a
+  routerLink="/patient/medicine-inventory"
+  class="round-button"
+>
+  <i class="arrow">&#x2192;</i>
+</a>
+
+        </div>
+      </div>
+      <div class="py-30 px-5">
+        <div class="flex items-center justify-center">
+          <img src="assets/images/records.jpg" alt="" class="reduce-size" />
+        </div>
+        <div class="mt-30">
+          <h2 class="text-26 leading-9 text-headingColor font-700 text-center">
+            Medical Records
+          </h2>
+          <p class="text-16 leading-7 text-textColor font-400 mt-4 text-center">
+            World-class care for everyone. Our health System offers unmatched, expert health care. From the lab Clinic.
+          </p>
+          <a
+  routerLink="/patient/medicine-inventory"
+  class="round-button"
+>
+  <i class="arrow">&#x2192;</i>
+</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- About section start -->
+<section>
+  <div class="container">
+    <div class="flex justify-between gap-[50px] lg:gap-[130px] xl:gap-0 flex-col-reverse lg:flex-row">
+      <!-- ABOUT CONTENT -->
+      <div class="w-full lg:w-1/2 xl:w-[670px]">
+        <h2 class="heading">Proud to be the nation's best</h2>
+        <p class="text__para">
+          For 10 years in a row, Kenya News & World Report has recognized us as one of
+          the best private hospitals in the nation and #1 in Nairobi.
+        </p>
+
+        <p class="text__para mt-[30px]">
+          Our best is something we strive for each day, caring for our patients—not looking back at what we accomplished but towards what we can do tomorrow. Providing the best.
+        </p>
+        <a routerLink="/patient/about" class="btn">Learn More</a>
+      </div>
+
+      <!-- ABOUT IMAGE -->
+      <div class="relative ">
+        <img src="assets/images/about.png" alt="About Image" />
+        <div class="absolute">
+          <img src="assets/images/about-card.png" alt="About Card" />
         </div>
       </div>
     </div>
   </div>
 </section>
-<!-- About section start -->
+
+
 <!--<app-about></app-about> --->
 <!-- Services section -->
 <section>
@@ -153,8 +218,17 @@
       <p class="text__para text-center">
         World-class care for everyone. Our health System offers unmatched, expert health container.
       </p>
+      <div class="services-grid">
+        <div class="service-card" *ngFor="let service of services">
+          <h3>{{ service.title }}</h3>
+          <p>{{ service.description }}</p>
+          <div class="service-footer">
+            <button class="arrow-button" routerLink="/patient/appointment">➔</button>
+            <span class="service-number" [ngClass]="service.color">{{ service.number }}</span>
+          </div>
+        </div>
+      </div>
     </div>
-    <!---<app-service-list></app-service-list>--->
   </div>
 </section>
 <!-- Feature section -->
@@ -174,30 +248,30 @@
             2.Search for your physician here, and contact their office.
           </li>
           <li class="text__para">
-            3. View our physicians who are accepting new patients, use the online Scheduling tool to select an appointment time.
+            3. View our physicians who are accepting new patients, use the online Scheduling tool <br/> to select an appointment time.
           </li>
         </ul>
-        <a routerLink='/'>
+        <a routerLink='/patient/appointment'>
           <button class="btn">Learn More</button>
         </a>
       </div>
       <!-- Feature image -->
       <div class="relative z-10 xl:w-770 flex justify-end mt-50 lg:mt-0">
         <img src="assets/images/feature-img.png" class="w-3/4" alt="" />
-        <div class="w-150 lg:w-248 bg-white absolute bottom-50 left-0 md:bottom-100 md:left-5 z-20 p-2 pb-3 lg:pt-4 lg:px-4 lg:pb-26 rounded-10">
-          <div class="flex items-center justify-between">
-            <div class="flex items-center gap-6 lg:gap-3">
-              <p class="text-10 leading-10 lg:text-14 lg:leading-5 text-headingColor font-600">Tue, 24</p>
-              <p class="text-10 leading-10 lg:text-14 lg:leading-5 text-headingColor font-400">10:00AM</p>
+        <div class="appointment-card">
+          <div class="card-header">
+            <div class="date-time">
+              <p class="date">Tue, 24</p>
+              <p class="time">10:00AM</p>
             </div>
-            <span class="w5 h-5 lg:w-34 lg:h-34 flex items-center justify-center bg-yellowColor rounded py-1 px-6 lg:py-3 lg:px-9">
+            <span class="video-icon">
               <img src="assets/images/video-icon.png" alt="" />
             </span>
           </div>
-          <div class="w-65 lg:w-96 bg-CCF0F3 py-1 px-2 lg:py-6 lg:px-10 text-8 leading-8 lg:text-12 lg:leading-4 text-irisBlueColor font-500 mt-2 lg:mt-4 rounded-full">Consultation</div>
-          <div class="flex items-center gap-6 lg:gap-10 mt-2 lg:mt-18">
+          <div class="appointment-type">Consultation</div>
+          <div class="doctor-info">
             <img src="assets/images/avatar-icon.png" alt="" />
-            <h4 class="text-10 leading-3 lg:text-16 lg:leading-22 font-700 text-headingColor">Musa Mwangea</h4>
+            <h4 class="doctor-name">Musa Mwangea</h4>
           </div>
         </div>
       </div>
@@ -213,7 +287,27 @@
         World-class care for everyone. Our health System offers unmatched, expert health container.
       </p>
     </div>
-    <!--<app-doctor-list></app-doctor-list>--->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-30 mt-30 lg:mt-55">
+      <div class="py-30 px-5" *ngFor="let doctor of doctors">
+        <div class="flex items-center justify-center">
+          <img [src]="doctor.photo" alt="" class="doctor-photo" />
+        </div>
+        <div class="mt-30">
+          <h2 class="text-26 leading-9 text-headingColor font-700 text-center">
+            {{ doctor.name }}
+          </h2>
+          <p class="text-16 leading-7 text-textColor font-400 mt-4 text-center">
+            Specialization: {{ doctor.specialization }}
+          </p>
+          <p class="text-16 leading-7 text-textColor font-400 mt-4 text-center">
+            Rating: {{ doctor.avgRating }} ({{ doctor.totalRating }} ratings)
+          </p>
+          <a routerLink="/doctors" class="round-button">
+            <i class="arrow">&#x2192;</i>
+          </a>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 <!-- FAQs section -->
