@@ -281,26 +281,31 @@
 <!-- Our great doctors -->
 <section>
   <div class="container">
-    <div class="xl:w-470 mx-auto">
-      <h2 class="heading text-center">Our great doctors</h2>
-      <p class="text__para text-center">
+    <div class="doctor-section">
+      <h2 class="heading-doctor">Our great doctors</h2>
+      <p class="text-doctor">
         World-class care for everyone. Our health System offers unmatched, expert health container.
       </p>
     </div>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-30 mt-30 lg:mt-55">
-      <div class="py-30 px-5" *ngFor="let doctor of doctors">
-        <div class="flex items-center justify-center">
-          <img [src]="doctor.photo" alt="" class="doctor-photo" />
+    <div class="doctor-sec-card">
+      <div class="doctor-card" *ngFor="let doctor of doctors">
+        <div class="photo-container">
+          <img [src]="doctor.photo" alt="Doctor's photo" class="doctor-photo" />
         </div>
-        <div class="mt-30">
-          <h2 class="text-26 leading-9 text-headingColor font-700 text-center">
+        <div class="mt-30 text-center">
+          <h2 class="doctor-name">
             {{ doctor.name }}
           </h2>
-          <p class="text-16 leading-7 text-textColor font-400 mt-4 text-center">
-            Specialization: {{ doctor.specialization }}
+          <p class="doctor-specialization">
+            {{ doctor.specialization }}
           </p>
-          <p class="text-16 leading-7 text-textColor font-400 mt-4 text-center">
-            Rating: {{ doctor.avgRating }} ({{ doctor.totalRating }} ratings)
+          <div class="doctor-rating">
+            <span class="star-icon">&#9733;</span>
+            <span class="rating">{{ doctor.avgRating }}</span>
+            <span class="rating-count">({{ doctor.totalRating }})</span>
+          </div>
+          <p class="doctor-location">
+            At Medicare Hospital, Nairobi.
           </p>
           <a routerLink="/doctors" class="round-button">
             <i class="arrow">&#x2192;</i>
@@ -310,6 +315,7 @@
     </div>
   </div>
 </section>
+
 <!-- FAQs section -->
 <section>
   <div class="container">

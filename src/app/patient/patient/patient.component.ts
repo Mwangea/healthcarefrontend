@@ -16,26 +16,29 @@ export class PatientComponent {
   ];
   doctors = [
     {
-      name: 'Dr. John Doe',
-      avgRating: 4.5,
-      totalRating: 120,
+      name: 'Dr. Malik Abdallah',
+      avgRating: 4.8,
+      totalRating: 172,
       photo: 'assets/images/doctor-img01.png',
-      specialization: 'Cardiologist'
+      specialization: 'Surgeon',
+      location: 'At Medicare Hospital, Nairobi.'
     },
     {
-      name: 'Dr. Jane Smith',
-      avgRating: 4.7,
-      totalRating: 95,
+      name: 'Dr. Swaleh Mahmud',
+      avgRating: 4.9,
+      totalRating: 272,
       photo: 'assets/images/doctor-img02.png',
-      specialization: 'Dermatologist'
+      specialization: 'Neurologist',
+      location: 'At Medicare Hospital, Nairobi.'
     },
     {
-      name: 'Dr. Jane Smith',
+      name: 'Dr. Salim Marijan',
       avgRating: 4.7,
-      totalRating: 95,
+      totalRating: 372,
       photo: 'assets/images/doctor-img03.png',
-      specialization: 'Neurology'
-    },
+      specialization: 'Dermatologist',
+      location: 'At Medicare Hospital, Nairobi.'
+    }
   ];
 
 }
