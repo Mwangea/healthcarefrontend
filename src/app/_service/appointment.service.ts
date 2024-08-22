@@ -29,7 +29,6 @@ createAppointment(appointmentData: any): Observable<any> {
 getDoctors(): Observable<any[]> {
   return this.http.get<any[]>(`${this.baseUrl}admin/doctors`);
 }
-
 getPatients(): Observable<any[]> {
   return this.http.get<any[]>(`${this.baseUrl}patient`);
 }

@@ -1,86 +1,251 @@
-/* dashboard.component.css */
-.dashboard-container {
-  display: flex;
-  height: 100vh;
-}
-
-.sidebar {
-  width: 250px;
-  background-color: #f5f5f5;
-  padding: 20px;
-}
-
-.logo {
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 20px;
-}
-
-.content {
-  flex: 1;
+.dashboard {
   display: flex;
   flex-direction: column;
-}
+  gap: 15px;
+  padding: 40px;
+  font-family: 'Roboto', sans-serif;
 
-.header {
-  display: flex;
-  justify-content: flex-end;
-  padding: 20px;
-  background-color: #ffffff;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
+  .top-row, .bottom-row {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;  // Allows wrapping on smaller screens
+    flex: 1;  // Let rows take equal space
+  }
 
-.user-info {
-  display: flex;
-  align-items: center;
-}
+  h2 {
+    font-size: 18px;
+    margin-bottom: 10px;  // Reduce margin to fit more content
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #333;
 
-.user-avatar {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  margin-right: 10px;
-}
+    .period {
+      font-size: 14px;
+      color: #888;
+      cursor: pointer;
+    }
 
-.user-name {
-  font-weight: bold;
-  margin-right: 10px;
-}
+    i {
+      font-size: 16px;
+      color: #888;
+      cursor: pointer;
+    }
+  }
 
-.main-content {
-  padding: 20px;
-  overflow-y: auto;
-}
+  .activity-overview, .new-appointments, .education-content, .top-medicines, .patient-fees {
+    flex: 1;
+    background-color: white;
+    border-radius: 10px;
+    padding: 15px;  // Reduce padding to fit more content
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    height: auto;  // Remove fixed height to allow content to dictate height
+  }
 
-.activity-overview, .appointments, .additional-info {
-  margin-bottom: 20px;
-}
+  .activity-overview {
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);  // 2 columns for larger screens
+      gap: 10px;  // Reduce gap between cards
 
-.mat-card {
-  margin-bottom: 20px;
-}
+      .metric-card {
+        padding: 10px;  // Reduce padding for compactness
+        border-radius: 10px;
+        text-align: center;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 
-.activity-overview mat-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  width: 100%;
-}
+        i {
+          font-size: 22px;  // Slightly smaller icon
+          margin-bottom: 5px;  // Reduce margin
+        }
 
-.activity-count {
-  font-size: 24px;
-  font-weight: bold;
-}
+        h3 {
+          font-size: 24px;  // Slightly smaller font
+          margin: 5px 0;
+          font-weight: bold;
+        }
 
-.education-content-item, .patient-fee-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 10px;
-}
+        p {
+          font-size: 13px;  // Slightly smaller font for text
+          color: #666;
+        }
 
-.spacer {
-  flex: 1;
+        &.appointments {
+          background-color: #E3F2FD;
+          i { color: #2196F3; }
+        }
+        &.new-patients {
+          background-color: #E8F5E9;
+          i { color: #4CAF50; }
+        }
+        &.medicines-sold {
+          background-color: #FFF3E0;
+          i { color: #FF9800; }
+        }
+        &.lab-tests {
+          background-color: #F3E5F5;
+          i { color: #9C27B0; }
+        }
+      }
+    }
+  }
+
+  .new-appointments {
+    table {
+      width: 100%;
+      border-collapse: collapse;
+
+      th, td {
+        padding: 10px;  // Reduce padding
+        text-align: left;
+        border-bottom: 1px solid #eee;
+      }
+
+      th {
+        font-weight: bold;
+        color: #666;
+
+        i {
+          margin-left: 5px;
+          font-size: 12px;
+        }
+      }
+
+      .avatar {
+        width: 25px;  // Reduce avatar size
+        height: 25px;
+        border-radius: 50%;
+        margin-right: 10px;
+        vertical-align: middle;
+      }
+    }
+  }
+
+  .education-content {
+    ul {
+      list-style-type: none;
+      padding: 0;
+
+      li {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;  // Reduce margin between items
+
+        .avatar {
+          width: 30px;  // Reduce avatar size
+          height: 30px;
+          border-radius: 50%;
+          margin-right: 10px;
+        }
+
+        .content-info {
+          flex-grow: 1;
+
+          h3 {
+            font-size: 15px;  // Slightly smaller title font
+            margin: 0;
+            color: #333;
+          }
+
+          p {
+            font-size: 13px;  // Slightly smaller font for text
+            color: #666;
+            margin: 3px 0 0;
+          }
+        }
+
+        .assign-btn, .request-fee-btn {
+          padding: 5px 10px;  // Reduce button padding
+          font-size: 13px;  // Reduce button text size
+          background-color: #2196F3;
+          color: white;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  .patient-fees {
+    ul {
+      list-style-type: none;
+      padding: 0;
+
+      li {
+        display: flex;
+        align-items: center; /* Align items center */
+        margin-bottom: 12px; /* Reduced margin */
+
+        .avatar {
+          width: 35px; /* Reduced avatar size */
+          height: 35px;
+          border-radius: 50%;
+          margin-right: 8px; /* Reduced margin */
+        }
+
+        .content-info {
+          display: flex;
+          flex-direction: column;
+          margin-right: auto; /* Ensures button stays on the right */
+
+          .patient-name {
+            font-size: 14px; /* Reduced font size */
+            color: #333;
+            margin-bottom: 5px; /* Margin to separate name from pending fee */
+          }
+
+          .pending-fee {
+            font-size: 12px; /* Reduced font size */
+            color: #FF9800;
+          }
+        }
+
+        .request-fee-btn {
+          padding: 5px 10px; /* Reduced padding */
+          font-size: 12px; /* Reduced font size */
+          background-color: #2196F3;
+          color: white;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 20px;  // Reduce padding on smaller screens
+
+    .top-row, .bottom-row {
+      flex-direction: column;  // Stack sections vertically on smaller screens
+    }
+
+    .metrics {
+      grid-template-columns: 1fr;  // Single column for smaller screens
+    }
+
+    h2 {
+      font-size: 16px;  // Slightly smaller title font for smaller screens
+    }
+
+    .metric-card h3 {
+      font-size: 22px;  // Slightly smaller metric font
+    }
+
+    .new-appointments table th, .new-appointments table td {
+      padding: 8px;  // Reduce padding for table on smaller screens
+    }
+  }
+
+  @media (max-width: 480px) {
+    .request-fee-btn, .assign-btn {
+      font-size: 11px;  // Reduce button text size for very small screens
+      padding: 4px 8px;  // Reduce button padding
+    }
+
+    .patient-name, .pending-fee {
+      font-size: 13px;  // Reduce font size for very small screens
+    }
+  }
 }
