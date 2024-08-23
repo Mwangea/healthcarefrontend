@@ -1,3 +1,5 @@
+@import 'swiper/swiper-bundle.css';
+
 .hero__section {
   padding-top: 60px;
  // height: 800px;
@@ -894,6 +896,43 @@
 
 .arrow {
   font-style: normal;
+}
+.faq-item {
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #ddd;
+
+  .question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    padding: 1rem 0;
+
+    h3 {
+      margin: 0;
+      font-size: 1.2rem;
+    }
+
+    button {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      outline: none;
+
+      span {
+        font-weight: bold;
+      }
+    }
+  }
+
+  .answer {
+    padding: 1rem 0;
+    p {
+      margin: 0;
+      font-size: 1rem;
+    }
+  }
 }
 
 @media (min-width: 768px) {

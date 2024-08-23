@@ -321,24 +321,60 @@
   <div class="container">
     <div class="flex justify-between gap-50 lg:gap-0">
       <div class="w-1/2 hidden md:block">
-        <img src="assets/images/faq-img.png" alt="" />
+        <img src="assets/images/faq-img.png" alt="Doctor Image" />
       </div>
       <div class="w-full md:w-1/2">
         <h2 class="heading">Frequent questions asked by patients</h2>
-        <!---<app-faqs-list></app-faqs-list>--->
+        <div *ngFor="let item of faqItems; let i = index" class="faq-item">
+          <div class="question" (click)="toggleQuestion(i)">
+            <h3>{{ item.question }}</h3>
+            <button>
+              <span *ngIf="selectedQuestionIndex === i">-</span>
+              <span *ngIf="selectedQuestionIndex !== i">+</span>
+            </button>
+          </div>
+          <div *ngIf="selectedQuestionIndex === i" class="answer">
+            <p>{{ item.content }}</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
+
+<!---<app-faqs-list></app-faqs-list>--->
 <!-- Testimonial section -->
 <section>
   <div class="container">
     <div class="xl:w-470 mx-auto">
       <h2 class="heading text-center">Patient Reviews</h2>
       <p class="text__para text-center">
-        World-class care for everyone. Our health System offers unmatched, expert health container.
+        World-class care for everyone. Our health system offers unmatched, expert health services with a personal touch.
       </p>
     </div>
-    <!---<app-testimonial></app-testimonial>--->
+    <div class="mt-[30px] lg:mt-[55px]">
+      <swiper-container [config]="swiperConfig">
+        <swiper-slide *ngFor="let testimonial of testimonials">
+          <div class="py-[30px] px-5 rounded-3">
+            <div class="flex items-center gap-[13px]">
+              <img src="assets/images/patient-avatar.png" alt="Patient Avatar" />
+              <div>
+                <h4 class="text-[18px] leading-[30px] font-semibold text-headingColor">
+                  {{ testimonial.name }}
+                </h4>
+                <div class="flex items-center gap-[2px]">
+                  <i class="text-yellowColor w-[18px] h-5">★</i>
+                  <!-- Repeat the star icon as needed -->
+                </div>
+              </div>
+            </div>
+            <p class="text-[16px] leading-7 mt-4 text-textColor font-[400]">
+              {{ testimonial.review }}
+            </p>
+          </div>
+        </swiper-slide>
+      </swiper-container>
+    </div>
   </div>
 </section>
+

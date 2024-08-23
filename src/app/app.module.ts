@@ -1,19 +1,18 @@
-//import { PatientMedicalRecordComponent } from './patient/patient/patient-medical-record/patient-medical-record.component';
-import { library } from './../../node_modules/@fortawesome/fontawesome-svg-core/index.d';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
+//import { SwiperModule } from 'ngx-swiper-wrapper';  // Correct import
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './component/home/home.component';
 import { LoginComponent } from './component/login/login.component';
 import { RegisterComponent } from './component/register/register.component';
-import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { MaterialModule } from './material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { CommonModule, DatePipe } from '@angular/common';
-import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule, provideHttpClient, withFetch, withInterceptors } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule, provideHttpClient, withFetch, withInterceptors } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule, provideToastr } from 'ngx-toastr';
 import { SidenavComponent } from './component/sidenav/sidenav.component';
@@ -25,7 +24,6 @@ import { MedicineInventoryComponent } from './component/medicine-inventory/medic
 import { InvoiceComponent } from './component/invoice/invoice.component';
 import { DoctorComponent } from './component/doctor/doctor.component';
 import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-//import { library } from '@fortawesome/fontawesome-svg-core';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
 import { HeaderComponent } from './component/header/header.component';
 import { OverlayModule } from '@angular/cdk/overlay';
@@ -62,7 +60,7 @@ import { ConfirmationInvoiceDialogComponent } from './component/invoice/confirma
 import { MatListModule } from '@angular/material/list';
 import { PatientLayoutComponent } from './patient-layout/patient-layout.component';
 import { PatientMedicineInventoryComponent } from './patient/patient-medicine-inventory/patient-medicine-inventory.component';
-import { PatientMedicalRecordComponent } from './patient/patient-medical-record/patient-medical-recor.component';
+//import { PatientMedicalRecordComponent } from './patient/patient-medical-record/patient-medical-record.component';
 import { PatientComponent } from './patient/patient/patient.component';
 import { ServicesComponent } from './patient/services/services.component';
 import { ContactComponent } from './patient/contact/contact.component';
@@ -70,19 +68,8 @@ import { FindDrComponent } from './patient/find-dr/find-dr.component';
 import { PatientheaderComponent } from './patient/patientheader/patientheader.component';
 import { PatientAppointmentComponent } from './patient/patient-appointment/patient-appointment.component';
 import { AboutComponent } from './patient/about/about.component';
-//import { PatientMedicineInventoryComponent } from './patient/patient/patient-medicine-inventory/patient-medicine-inventory.component';
-//import { PatientMedicalRecordComponent } from './patient/patient-medical-record/patient-medical-record.component';
-//import { PatientComponent } from './patient/patient/patient.component';
-
-//import { NgxChartsModule } from 'ngx-charts';
-//import { AppointmentDialogComponent } from './appointments/appointment-dialog/appointment-dialog.component';
-//import { AuthInterceptor } from './auth.interceptor';
-//import { AuthInterceptor } from './auth.interceptor';
-//import { UserService } from './_service/user.service';
-//import { AuthInterceptor } from './auth.interceptor';
-
-
-
+import { PatientMedicalRecordComponent } from './patient/patient-medical-record/patient-medical-recor.component';
+import { SwiperModule } from 'ngx-swiper-wrapper';
 
 @NgModule({
   declarations: [
@@ -125,20 +112,12 @@ import { AboutComponent } from './patient/about/about.component';
     PatientMedicineInventoryComponent,
     PatientMedicalRecordComponent,
     PatientComponent,
-    HeaderComponent,
     ServicesComponent,
     ContactComponent,
     FindDrComponent,
     PatientheaderComponent,
     PatientAppointmentComponent,
     AboutComponent
-
-
-
-
-
-
-
   ],
   imports: [
     BrowserModule,
@@ -159,23 +138,17 @@ import { AboutComponent } from './patient/about/about.component';
     NgxPaginationModule,
     MatSnackBarModule,
     NgxChartsModule,
-    MatListModule
-
-
-
-
-
+    MatListModule,
+    SwiperModule
   ],
+
+
   providers: [
     provideClientHydration(),
     provideAnimationsAsync(),
     provideHttpClient(withFetch(), withInterceptors([tokenInterceptor])),
-    //provideHttpClient(withInterceptors([tokenInterceptor])),
     provideToastr({closeButton: true}),
     DatePipe
-
-
-
   ],
   bootstrap: [AppComponent]
 })
