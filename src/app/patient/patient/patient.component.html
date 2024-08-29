@@ -344,37 +344,23 @@
 
 <!---<app-faqs-list></app-faqs-list>--->
 <!-- Testimonial section -->
-<section>
+<section class="testimonials-section">
   <div class="container">
-    <div class="xl:w-470 mx-auto">
-      <h2 class="heading text-center">Patient Reviews</h2>
-      <p class="text__para text-center">
-        World-class care for everyone. Our health system offers unmatched, expert health services with a personal touch.
+    <div class="xl:w-470 mx-auto text-center">
+      <h2 class="heading">What Our Patients Say</h2>
+      <p class="text__para">
+        Hear from our patients about their experiences with our health system.
       </p>
     </div>
-    <div class="mt-[30px] lg:mt-[55px]">
-      <swiper-container [config]="swiperConfig">
-        <swiper-slide *ngFor="let testimonial of testimonials">
-          <div class="py-[30px] px-5 rounded-3">
-            <div class="flex items-center gap-[13px]">
-              <img src="assets/images/patient-avatar.png" alt="Patient Avatar" />
-              <div>
-                <h4 class="text-[18px] leading-[30px] font-semibold text-headingColor">
-                  {{ testimonial.name }}
-                </h4>
-                <div class="flex items-center gap-[2px]">
-                  <i class="text-yellowColor w-[18px] h-5">★</i>
-                  <!-- Repeat the star icon as needed -->
-                </div>
-              </div>
-            </div>
-            <p class="text-[16px] leading-7 mt-4 text-textColor font-[400]">
-              {{ testimonial.review }}
-            </p>
-          </div>
-        </swiper-slide>
-      </swiper-container>
+    <div *ngIf="isBrowser" class="testimonial-carousel">
+      <div class="carousel-container" [style.transform]="'translateX(' + translateX + 'px)'">
+        <div *ngFor="let testimonial of testimonials" class="testimonial-card">
+          <img [src]="testimonial.photo" alt="Patient photo" class="testimonial-photo" />
+          <p class="testimonial-text">{{ testimonial.text }}</p>
+          <h3 class="testimonial-name">{{ testimonial.name }}</h3>
+          <span class="testimonial-position">{{ testimonial.position }}</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
-

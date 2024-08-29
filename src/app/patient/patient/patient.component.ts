@@ -1,12 +1,17 @@
-import { Component } from '@angular/core';
-import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
+import { isPlatformBrowser } from '@angular/common';
+import { Component, Inject, OnDestroy, OnInit, PLATFORM_ID } from '@angular/core';
+
+
 
 @Component({
   selector: 'app-patient',
   templateUrl: './patient.component.html',
   styleUrl: './patient.component.scss'
 })
-export class PatientComponent {
+export class PatientComponent implements OnInit, OnDestroy {
+  isBrowser: boolean;
+
+
   services = [
     { title: 'Cancer Care', description: 'World-class care for everyone. Our health System offers unmatched, expert health care. From the lab to the clinic.', number: '1', color: 'blue' },
     { title: 'Labor & Delivery', description: 'World-class care for everyone. Our health System offers unmatched, expert health care. From the lab to the clinic.', number: '2', color: 'purple' },
@@ -81,41 +86,86 @@ export class PatientComponent {
   ];
 
   testimonials = [
-    { name: 'Musa Mwangea', review: 'I have taken medical services from them. They treat so well and they are providing the best medical services.' },
-    { name: 'John Doe', review: 'Excellent service and professional staff. Highly recommended!' },
-    { name: 'Jane Smith', review: 'They offer outstanding medical care. I am very satisfied with their services.' },
-    { name: 'Alice Johnson', review: 'The doctors are very attentive and the facilities are top-notch.' },
-    { name: 'Michael Brown', review: 'I felt very comfortable during my visits. The staff is friendly and helpful.' },
-    { name: 'Emily Davis', review: 'Great experience! They really care about their patients.' },
-    { name: 'David Wilson', review: 'The best medical service I’ve ever received. Highly recommended!' },
-    { name: 'Sophia Martinez', review: 'Very professional and caring. I felt well taken care of.' },
-    { name: 'James Taylor', review: 'Fantastic medical services. The doctors are very knowledgeable and kind.' },
-    { name: 'Olivia Anderson', review: 'I had a great experience with their medical team. Highly satisfied!' },
-    { name: 'Isabella Thomas', review: 'Very thorough and compassionate care. I would recommend them to anyone.' }
-  ];
-
-
-  swiperConfig: SwiperConfigInterface = {
-    pagination: true,
-    slidesPerView: 1,
-    spaceBetween: 30,
-    breakpoints: {
-      640: {
-        slidesPerView: 1,
-        spaceBetween: 0,
-      },
-      768: {
-        slidesPerView: 2,
-        spaceBetween: 20,
-      },
-      1024: {
-        slidesPerView: 3,
-        spaceBetween: 30,
-      },
+    {
+      photo: 'assets/images/avatar-icon.png',
+      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet.',
+      name: 'John Doe',
+      position: 'Software Engineer'
     },
-  };
+    {
+      photo: 'assets/images/avatar-icon.png',
+      text: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      name: 'Jane Smith',
+      position: 'Doctor'
+    },
+    {
+      photo: 'assets/images/avatar-icon.png',
+      text: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.',
+      name: 'Michael Johnson',
+      position: 'Teacher'
+    },
+    {
+      photo: 'assets/images/avatar-icon.png',
+      text: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.',
+      name: 'Michael Johnson',
+      position: 'Teacher'
+    },
+    {
+      photo: 'assets/images/avatar-icon.png',
+      text: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.',
+      name: 'Michael Johnson',
+      position: 'Teacher'
+    },
+    {
+      photo: 'assets/images/avatar-icon.png',
+      text: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.',
+      name: 'Michael Johnson',
+      position: 'Teacher'
+    },
+
+
+  ]
+
 
   selectedQuestionIndex: number | null = null;
+
+  translateX = 0;
+  currentIndex = 0;
+  interval: any;
+
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {
+    this.isBrowser = isPlatformBrowser(this.platformId);
+  }
+
+  ngOnInit() {
+    if (this.isBrowser) {
+      this.startCarousel();
+    }
+  }
+
+  ngOnDestroy() {
+    if (this.interval) {
+      clearInterval(this.interval);
+    }
+  }
+
+  startCarousel() {
+    this.interval = setInterval(() => {
+      this.nextSlide();
+    }, 5000);
+  }
+
+  nextSlide() {
+    this.currentIndex = (this.currentIndex + 1) % this.testimonials.length;
+    this.updateTranslateX();
+  }
+
+  updateTranslateX() {
+    const cardWidth = 300; // Adjust this value based on your card width
+    const gap = 20; // Adjust this value based on the gap between cards
+    this.translateX = -(this.currentIndex * (cardWidth + gap));
+  }
+
 
   toggleQuestion(index: number): void {
     this.selectedQuestionIndex = this.selectedQuestionIndex === index ? null : index;
