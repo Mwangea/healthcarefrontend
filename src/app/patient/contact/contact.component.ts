@@ -9,6 +9,8 @@ import emailjs from '@emailjs/browser';
   styleUrls: ['./contact.component.scss']
 })
 export class ContactComponent implements OnInit {
+  year: number = new Date().getFullYear();
+  logo = '../../assets/images/logo.png';
   contactForm!: FormGroup;
   isSubmitting = false;
 
@@ -74,4 +76,39 @@ export class ContactComponent implements OnInit {
     }
     return '';
   }
+
+  socialLinks = [
+    { path: 'https://www.twitter.com/@_mwangea', icon: 'Twitter' },
+    { path: 'https://www.github.com/mwangea', icon: 'Github' },
+    { path: 'https://www.linkedin.com/mwangea', icon: 'linkedIn' },
+    { path: 'https://www.discord.com/mwangea', icon: 'discord' }
+  ];
+
+  quickLinkSections = [
+    {
+      title: 'Quick Links',
+      links: [
+        { path: '/home', display: 'Home' },
+        { path: '/services', display: 'Services' },
+        { path: '/', display: 'About us' },
+        { path: '/', display: 'Blog' }
+      ]
+    },
+    {
+      title: 'I want to',
+      links: [
+        { path: '/find-a-doctor', display: 'Find a doctor' },
+        { path: '/', display: 'Request an Appointment' },
+        { path: '/', display: 'Find a location' },
+        { path: '/', display: 'Get opinion' }
+      ]
+    },
+    {
+      title: 'Support',
+      links: [
+        { path: '/', display: 'Donate' },
+        { path: '/contact', display: 'Contact us' }
+      ]
+    }
+  ];
 }
