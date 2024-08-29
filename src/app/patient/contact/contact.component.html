@@ -1,1 +1,37 @@
-<p>contact works!</p>
+<section class="contact-section">
+  <div class="contact-container">
+    <h1 class="contact-title">Get in Touch</h1>
+    <p class="contact-description">
+      We'd love to hear from you. Please fill out this form and we'll get back to you as soon as possible.
+    </p>
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form">
+      <mat-form-field appearance="outline">
+        <mat-label>Your Name</mat-label>
+        <input matInput formControlName="name" placeholder="John Doe">
+        <mat-error *ngIf="contactForm.get('name')?.invalid">{{getErrorMessage('name')}}</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Your Email</mat-label>
+        <input matInput type="email" formControlName="email" placeholder="johndoe@example.com">
+        <mat-error *ngIf="contactForm.get('email')?.invalid">{{getErrorMessage('email')}}</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Subject</mat-label>
+        <input matInput formControlName="subject" placeholder="How can we help you?">
+        <mat-error *ngIf="contactForm.get('subject')?.invalid">{{getErrorMessage('subject')}}</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Your message</mat-label>
+        <textarea matInput formControlName="message" rows="4" placeholder="Please provide details..."></textarea>
+        <mat-error *ngIf="contactForm.get('message')?.invalid">{{getErrorMessage('message')}}</mat-error>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" type="submit" [disabled]="contactForm.invalid || isSubmitting">
+        {{isSubmitting ? 'Sending...' : 'Send Message'}}
+      </button>
+    </form>
+  </div>
+</section>

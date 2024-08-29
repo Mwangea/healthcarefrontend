@@ -9,6 +9,8 @@ import { Component, Inject, OnDestroy, OnInit, PLATFORM_ID } from '@angular/core
   styleUrl: './patient.component.scss'
 })
 export class PatientComponent implements OnInit, OnDestroy {
+  year: number = new Date().getFullYear();
+  logo = '../../assets/images/logo.png';
   isBrowser: boolean;
 
 
@@ -125,6 +127,41 @@ export class PatientComponent implements OnInit, OnDestroy {
 
 
   ]
+
+  socialLinks = [
+    { path: 'https://www.twitter.com/@_mwangea', icon: 'Twitter' },
+    { path: 'https://www.github.com/mwangea', icon: 'Github' },
+    { path: 'https://www.linkedin.com/mwangea', icon: 'linkedIn' },
+    { path: 'https://www.discord.com/mwangea', icon: 'discord' }
+  ];
+
+  quickLinkSections = [
+    {
+      title: 'Quick Links',
+      links: [
+        { path: '/home', display: 'Home' },
+        { path: '/services', display: 'Services' },
+        { path: '/', display: 'About us' },
+        { path: '/', display: 'Blog' }
+      ]
+    },
+    {
+      title: 'I want to',
+      links: [
+        { path: '/find-a-doctor', display: 'Find a doctor' },
+        { path: '/', display: 'Request an Appointment' },
+        { path: '/', display: 'Find a location' },
+        { path: '/', display: 'Get opinion' }
+      ]
+    },
+    {
+      title: 'Support',
+      links: [
+        { path: '/', display: 'Donate' },
+        { path: '/contact', display: 'Contact us' }
+      ]
+    }
+  ];
 
 
   selectedQuestionIndex: number | null = null;
