@@ -40,6 +40,7 @@ export interface doctor{
 }
 
 export interface medicine {
+  id: string;
  ProductName: string;
  Type: string;
  PricePerPack:number;
@@ -47,6 +48,7 @@ export interface medicine {
  ExpiryDate: number;
  Manufacturer: string;
  sold: number;
+ imageUrl: string;
 }
 
 export interface medicalRecord{

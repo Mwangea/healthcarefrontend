@@ -1,1 +1,12 @@
-<p>patient-medical-recor works!</p>
+<div class="medical-records">
+  <h2>Medical Records</h2>
+  <div class="records-list">
+    <div class="record-card" *ngFor="let record of medicalRecords">
+      <h3>Record ID: {{ record.recordId }}</h3>
+      <p><strong>Date:</strong> {{ record.date }}</p>
+      <p><strong>Description:</strong> {{ record.description }}</p>
+      <p><strong>Doctor:</strong> {{ record.doctorName }}</p>
+      <p><strong>Notes:</strong> {{ record.notes }}</p>
+    </div>
+  </div>
+</div>

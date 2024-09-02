@@ -1,0 +1,27 @@
+h1 {
+  font-size: 1.5rem;
+  color: #007bff;
+}
+
+mat-dialog-content {
+  padding: 20px;
+}
+
+.dialog-actions {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .left-actions {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .right-actions {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+  }
+}

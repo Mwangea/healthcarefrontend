@@ -14,6 +14,10 @@ export class appointmentService {
 
   baseUrl = environment.apiUrl;
 
+  requestAppointment(appointmentData: any): Observable<any> {
+    return this.http.post(this.baseUrl, appointmentData);
+  }
+
   GetAllAppointments(){
   return this.http.get<appointment[]>(`${this.baseUrl}appointments`);
 }

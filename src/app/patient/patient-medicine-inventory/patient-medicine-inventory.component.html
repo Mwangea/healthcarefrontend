@@ -1,1 +1,17 @@
-<p>patient-medicine-inventory works!</p>
+<div class="medicine-inventory">
+  <h2>Medicine Inventory</h2>
+  <div class="medicine-list">
+    <div class="medicine-card" *ngFor="let medicine of medicineList">
+      <img [src]="medicine.imageUrl" alt="{{ medicine.productName }}" class="medicine-image">
+      <div class="medicine-details">
+        <h3>{{ medicine.productName }}</h3>
+        <p>Type: {{ medicine.type }}</p>
+        <p>Price per Pack: ${{ medicine.pricePerPack.toFixed(2) }}</p>
+        <p>Stock: {{ medicine.stock }}</p>
+        <p>Expiry Date: {{ medicine.expiryDate }}</p>
+        <p>Manufacturer: {{ medicine.manufacturer }}</p>
+        <button class="purchase-button" (click)="onPurchase(medicine)">Purchase</button>
+      </div>
+    </div>
+  </div>
+</div>

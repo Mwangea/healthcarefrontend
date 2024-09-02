@@ -1,0 +1,40 @@
+<div class="lab-tests">
+  <header>
+    <h1>Available Lab Tests</h1>
+  </header>
+
+  <div class="lab-test-cards">
+    <div class="card" *ngFor="let test of labTests">
+      <h2>{{ test.name }}</h2>
+      <p><strong>Description:</strong> {{ test.description }}</p>
+      <p><strong>Price:</strong> {{ test.price }}</p>
+      <p><strong>Duration:</strong> {{ test.duration }}</p>
+      <p><strong>Result Time:</strong> {{ test.resultTime }}</p>
+    </div>
+  </div>
+
+  <header>
+    <h1>Patient Lab Records</h1>
+  </header>
+
+  <div class="lab-records">
+    <table>
+      <thead>
+        <tr>
+          <th>Test Name</th>
+          <th>Date</th>
+          <th>Result</th>
+          <th>Comments</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let record of patientLabRecords">
+          <td>{{ record.testName }}</td>
+          <td>{{ record.testDate }}</td>
+          <td>{{ record.result }}</td>
+          <td>{{ record.comments }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

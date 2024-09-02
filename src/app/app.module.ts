@@ -6,7 +6,7 @@ import { HomeComponent } from './component/home/home.component';
 import { LoginComponent } from './component/login/login.component';
 import { RegisterComponent } from './component/register/register.component';
 import { MaterialModule } from './material.module';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule, DatePipe } from '@angular/common';
 import { BrowserAnimationsModule, provideAnimations } from '@angular/platform-browser/animations';
 import { ToastrModule, provideToastr } from 'ngx-toastr';
@@ -56,7 +56,7 @@ import { EditInvoiceDialogComponent } from './component/invoice/edit-invoice-dia
 import { ConfirmationInvoiceDialogComponent } from './component/invoice/confirmation-invoice-dialog/confirmation-invoice-dialog.component';
 import { PatientLayoutComponent } from './patient-layout/patient-layout.component';
 import { PatientMedicineInventoryComponent } from './patient/patient-medicine-inventory/patient-medicine-inventory.component';
-import { PatientMedicalRecordComponent } from './patient/patient-medical-record/patient-medical-recor.component';
+import { PatientMedicalRecorComponent } from './patient/patient-medical-record/patient-medical-recor.component';
 import { PatientComponent } from './patient/patient/patient.component';
 import { ServicesComponent } from './patient/services/services.component';
 import { ContactComponent } from './patient/contact/contact.component';
@@ -66,6 +66,9 @@ import { PatientAppointmentComponent } from './patient/patient-appointment/patie
 import { AboutComponent } from './patient/about/about.component';
 
 import { tokenInterceptor } from './_service/httpinterceptor.interceptor';
+import { PatientLabtestComponent } from './patient/patient-labtest/patient-labtest.component';
+import { MatInputModule } from '@angular/material/input';
+import { DoctorDetailsDialogComponent } from './patient/find-dr/doctor-details-dialog/doctor-details-dialog.component';
 
 @NgModule({
     declarations: [
@@ -106,14 +109,17 @@ import { tokenInterceptor } from './_service/httpinterceptor.interceptor';
         ConfirmationInvoiceDialogComponent,
         PatientLayoutComponent,
         PatientMedicineInventoryComponent,
-        PatientMedicalRecordComponent,
+        PatientMedicalRecorComponent,
         PatientComponent,
         ServicesComponent,
         ContactComponent,
         FindDrComponent,
         PatientheaderComponent,
         PatientAppointmentComponent,
-        AboutComponent
+        AboutComponent,
+        PatientLabtestComponent,
+        DoctorDetailsDialogComponent,
+
     ],
     imports: [
         BrowserModule,
@@ -133,6 +139,8 @@ import { tokenInterceptor } from './_service/httpinterceptor.interceptor';
         MatSnackBarModule,
         NgxChartsModule,
         MatListModule,
+        MatInputModule,
+        FormsModule,
         CarouselModule.forRoot(),
     ],
     providers: [

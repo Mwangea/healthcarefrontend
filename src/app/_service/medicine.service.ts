@@ -20,4 +20,8 @@ export class medicineService {
   GetMedicineById(Id:string){
     return this.http.get<medicine>(`${this.baseUrl}medicine/${Id}`);
   }
+
+  BuyMedicine(Id: string, quantity: number): Observable<any> {
+    return this.http.put(`${this.baseUrl}/medicines/${Id}/buy`, { quantity });
+  }
 }

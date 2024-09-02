@@ -1,1 +1,22 @@
-<p>find-dr works!</p>
+<div class="doctor-list">
+  <h1>Find a Doctor</h1>
+
+  <div class="search-bar">
+    <mat-form-field appearance="fill">
+      <mat-label>Search Doctors</mat-label>
+      <input matInput [(ngModel)]="searchQuery" (ngModelChange)="onSearchChange()" placeholder="Enter doctor name or profession">
+    </mat-form-field>
+  </div>
+
+  <div class="doctor-cards">
+    <div class="card" *ngFor="let doctor of filteredDoctors" (click)="openDoctorDetails(doctor)">
+      <img [src]="doctor.imageUrl" alt="{{doctor.name}}" class="doctor-image">
+      <h2>{{ doctor.name }}</h2>
+      <p><strong>Profession:</strong> {{ doctor.profession }}</p>
+      <p><strong>Ratings:</strong> {{ doctor.ratings }}</p>
+      <p [ngClass]="{'available': doctor.availability === 'Available', 'not-available': doctor.availability === 'Not Available'}">
+        <strong>Availability:</strong> {{ doctor.availability }}
+      </p>
+    </div>
+  </div>
+</div>

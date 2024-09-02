@@ -16,13 +16,14 @@ import { LabtestComponent } from './component/labtest/labtest.component';
 import { SettingsComponent } from './component/settings/settings.component';
 import { PatientComponent } from './patient/patient/patient.component';
 import { PatientMedicineInventoryComponent } from './patient/patient-medicine-inventory/patient-medicine-inventory.component';
-import { PatientMedicalRecordComponent } from './patient/patient-medical-record/patient-medical-recor.component';
+import { PatientMedicalRecorComponent } from './patient/patient-medical-record/patient-medical-recor.component';
 import { ServicesComponent } from './patient/services/services.component';
 import { ContactComponent } from './patient/contact/contact.component';
 import { FindDrComponent } from './patient/find-dr/find-dr.component';
 import { PatientLayoutComponent } from './patient-layout/patient-layout.component';
 import { PatientAppointmentComponent } from './patient/patient-appointment/patient-appointment.component';
 import { AboutComponent } from './patient/about/about.component';
+import { PatientLabtestComponent } from './patient/patient-labtest/patient-labtest.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -49,12 +50,13 @@ const routes: Routes = [
     children: [
       { path: 'home', component: PatientComponent },
       { path:'medicine-inventory', component: PatientMedicineInventoryComponent },
-      { path:'medical-records', component: PatientMedicalRecordComponent },
+      { path:'medical-records', component: PatientMedicalRecorComponent },
       { path:'services', component: ServicesComponent},
       { path:'contact', component: ContactComponent},
       { path: 'doctor', component: FindDrComponent},
       { path:'appointment', component: PatientAppointmentComponent},
-      { path:'about', component: AboutComponent}
+      { path:'about', component: AboutComponent},
+      { path:'labtest', component: PatientLabtestComponent},
     ]
    },
 ];
